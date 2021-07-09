@@ -13,13 +13,13 @@
                 </a>
             </li>
             <li>
-                <a href="<?php echo base_url('user-list'); ?>">
-                    <i class="glyphicon glyphicon-user mr-15"></i> <span>Client</span>
+                <a href="<?php echo base_url('role'); ?>">
+                    <i class="glyphicon glyphicon-user mr-15"></i> <span>Role Master</span>
                 </a>
             </li>
             <li>
-                <a href="<?php echo base_url('product-list'); ?>">
-                    <i class="fa fa-shopping-cart mr-15"></i> <span>Product</span>
+                <a href="<?php echo base_url('user'); ?>">
+                    <i class="fa fa-shopping-cart mr-15"></i> <span>User Master</span>
                 </a>
             </li>
             <li>
@@ -46,8 +46,8 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="<?php echo base_url('user-list'); ?>"><i class="fa fa-circle-thin"></i>User </a></li>
-                    <li><a href="<?php echo base_url('product-list'); ?>"><i class="fa fa-circle-thin"></i>Product </a></li>
+                    <li><a href="<?php echo base_url('role'); ?>"><i class="fa fa-circle-thin"></i>User </a></li>
+                    <li><a href="<?php echo base_url('user'); ?>"><i class="fa fa-circle-thin"></i>Product </a></li>
                     <li><a href="<?php echo base_url('userProduct-list'); ?>"><i class="fa fa-circle-thin"></i>User Product </a></li>
                     <li><a href="<?php echo base_url('productInvestment-list'); ?>"><i class="fa fa-circle-thin"></i>Product Investment </a></li>
                     <li><a href="<?php echo base_url('issueMaster-list'); ?>"><i class="fa fa-circle-thin"></i>Issue Master </a></li>

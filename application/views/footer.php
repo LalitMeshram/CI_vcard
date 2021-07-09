@@ -198,6 +198,7 @@
 <!-- ./wrapper -->
 
 
+
 <!-- jQuery 3 -->
 <script src="<?php echo base_url() . 'resource/assets/vendor_components/jquery-3.3.1/jquery-3.3.1.js'; ?>"></script>
 
@@ -206,11 +207,12 @@
 <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->        
 <script src="<?php echo base_url() . 'resource/js/ajax-jquery.js'; ?>"></script>
 
+
 <!--jquery validation-->
 <script src="<?php echo base_url() . 'resource/js/jquery.validate.min.js'; ?>"></script>
 
 <!-- popper -->
-<!--<script src="<?php // echo base_url().'resource/assets/vendor_components/popper/dist/popper.min.js';     ?>"></script>-->
+<!--<script src="<?php // echo base_url().'resource/assets/vendor_components/popper/dist/popper.min.js';      ?>"></script>-->
 
 <!-- Bootstrap 4.1-->
 <script src="<?php echo base_url() . 'resource/assets/vendor_components/bootstrap/dist/js/bootstrap.min.js'; ?>"></script>
@@ -240,37 +242,39 @@
 
 
 <!--notification alert-->
+
+
 <script>
 
     function getNotification() {
 
-    $.ajax({
+        $.ajax({
 
-    url: 'expiry-alert',
+            url: 'expiry-alert',
             type: 'GET',
             cache: false,
             contentType: false,
             processData: false,
             dataType: 'json',
             success: function (response) {
-            if (response.status == 200) {
-            $('#msgCount').html(response.data.length);
+                if (response.status == 200) {
+                    $('#msgCount').html(response.data.length);
                     var list = `<ul class="menu inner-content-div" >`;
-                    for (var i = 0; i < response.data.length; i++){
-            list += `<li>
-                        <a href="<?php echo base_url('userProduct-list');?>">
+                    for (var i = 0; i < response.data.length; i++) {
+                        list += `<li>
+                        <a href="<?php echo base_url('userProduct-list'); ?>">
                             <div class="mail-contnet">
                             <h4>
-                        `+response.data[i].business_name+` | `+response.data[i].owner_name+`
+                        ` + response.data[i].business_name + ` | ` + response.data[i].owner_name + `
                 </h4>
-                    <span>AMC Date: `+response.data[i].upcomming_amc_date+`</span>
+                    <span>AMC Date: ` + response.data[i].upcomming_amc_date + `</span>
                                                     </div>
                                                 </a>
                                             </li>`;
-                   }
-                   list +=`</ul>`;
-                   $('#listNotify').html(list);
-                    
+                    }
+                    list += `</ul>`;
+                    $('#listNotify').html(list);
+
                 } else if (response.status == 400) {
 
                 }

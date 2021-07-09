@@ -1,9 +1,9 @@
-<?php
-$session_data=$this->session->userdata();
-if($session_data['loginSession']==NULL){
-    redirect(base_url('/'));
-}
-?>
+<?php 
+//$session_data=$this->session->userdata();
+//if($session_data['loginSession']==NULL){
+//    redirect(base_url('/'));
+//}
+//?>
 
 
 <!DOCTYPE html>
@@ -21,11 +21,11 @@ if($session_data['loginSession']==NULL){
         <!-- Bootstrap 4.1-->
         <link rel="stylesheet" href="<?php echo base_url() . 'resource/assets/vendor_components/bootstrap/dist/css/bootstrap.min.css'; ?>">
 
-        <!-- Bootstrap extend-->
-        <link rel="stylesheet" href="<?php echo base_url() . 'resource/css/bootstrap-extend.css'; ?>">	
+        <!-- Bootstrap extend-->      
+       <link rel="stylesheet" href="<?php echo base_url() . 'resource/css/bootstrap-extend.css'; ?>">	
 
         <!-- Data Table-->
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'resource/assets/vendor_components/datatable/datatables.min.css' ?>"/>
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'resource/assets/vendor_components/datatable/datatables.min.css' ?>">
 
         <!-- Theme style -->
         <link rel="stylesheet" href="<?php echo base_url() . 'resource/css/master_style.css'; ?>">
@@ -34,6 +34,7 @@ if($session_data['loginSession']==NULL){
 
         <!-- SoftMaterial admin skins -->
         <link rel="stylesheet" href="<?php echo base_url() . 'resource/css/skins/_all-skins.css'; ?>">	
+        
 
         <style>
             .error{
