@@ -162,7 +162,7 @@
                                     <input type="text" class="form-control" placeholder="Phone No" id="phoneNo1" name="phoneNo1">
                                 </div>
                             </div>
-                            
+
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label class="control-label">Installation Date</label>
@@ -178,7 +178,6 @@
                                 </div>
                             </div>
 
-                        </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label >Status</label>
@@ -192,25 +191,114 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <!--transaction row-->
+
+                        <h4 class="box-title text-info"><i class="ti-user mr-15"></i> Other Information </h4>
+                        <hr class="my-15">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label ><span class="error">*</span>Select Service</label>
+                                    <input type="text" class="form-control" placeholder="Phone No" id="phoneNo1" name="phoneNo1">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label ><span class="error">*</span>Title</label>
+                                    <input type="text" class="form-control" placeholder="Phone No" id="phoneNo1" name="phoneNo1">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label ><span class="error">*</span>Url</label>
+                                    <input type="text" class="form-control" placeholder="Phone No" id="phoneNo1" name="phoneNo1">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label ><span class="error">*</span>Number</label>
+                                    <input type="text" class="form-control" placeholder="Phone No" id="phoneNo1" name="phoneNo1">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label ><span class="error">*</span>Designation</label>
+                                    <input type="text" class="form-control" placeholder="Phone No" id="phoneNo1" name="phoneNo1">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label ><span class="error">*</span>Sequence</label>
+                                    <input type="text" class="form-control" placeholder="Phone No" id="phoneNo1" name="phoneNo1">
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-2">
+                                <div class="row mt-5" style="margin-top: 25px;">
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <label class="control-label"></label>
+                                            <button type="button" class="btn btn-info" id="addUser">Add</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <table class="table table-bordered" id="billTable">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Select Service</th>
+                                        <th scope="col">Title</th>
+                                        <th scope="col">Url</th>
+                                        <th scope="col">Number</th>
+                                        <th scope="col">Designation</th>
+                                        <th scope="col">Sequence</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="billData">   
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <!--other info-->
+
+                        <h4 class="box-title text-info"><i class="ti-user mr-15"></i> User Profile </h4>
+                        <hr class="my-15">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label ><span class="error">*</span>Role</label>
+                                    <input type="text" class="form-control" placeholder="Phone No" id="phoneNo1" name="phoneNo1">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label ><span class="error">*</span>Profile</label>
+                                    <input type="text" class="form-control" placeholder="Phone No" id="phoneNo1" name="phoneNo1">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- /.box-body -->
+
 
                     </div>
-
-                    <!-- /.box-body -->
-
-
+                    <div class="modal-footer text-right">
+                        <button type="button" class="btn btn-danger waves-effect text-left" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary btn-outline">
+                            <i class="ti-save-alt"></i> Save
+                        </button>
+                    </div>
+                </form>
+                <!--form end-->
             </div>
-            <div class="modal-footer text-right">
-                <button type="button" class="btn btn-danger waves-effect text-left" data-dismiss="modal">Cancel</button>
-                <button type="submit" class="btn btn-primary btn-outline">
-                    <i class="ti-save-alt"></i> Save
-                </button>
-            </div>
-            </form>
-            <!--form end-->
+            <!-- /.modal-content -->
         </div>
-        <!-- /.modal-content -->
+        <!-- /.modal-dialog -->
     </div>
-    <!-- /.modal-dialog -->
-</div>
 
 </div>

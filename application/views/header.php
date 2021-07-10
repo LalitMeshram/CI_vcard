@@ -16,7 +16,7 @@
         <meta name="author" content="">
         <link rel="icon" href="<?php echo base_url() . 'resource/images/favicon.ico'; ?>">
 
-        <title>Soulsoft-PMS </title>
+        <title>Online Visiting Card </title>
 
         <!-- Bootstrap 4.1-->
         <link rel="stylesheet" href="<?php echo base_url() . 'resource/assets/vendor_components/bootstrap/dist/css/bootstrap.min.css'; ?>">
@@ -49,7 +49,7 @@
             <header class="main-header">
                 <!-- Logo -->
                 <a href="#" class="logo">
-                    <span class="text-white">PMS</span>
+                    <span class="text-white">Online Visiting Card</span>
                 </a>
                 <!-- Header Navbar -->
                 <nav class="navbar navbar-static-top">

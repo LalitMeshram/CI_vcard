@@ -13,23 +13,23 @@
                 </a>
             </li>
             <li>
-                <a href="<?php echo base_url('role'); ?>">
+                <a href="<?php echo base_url('role-master'); ?>">
                     <i class="glyphicon glyphicon-user mr-15"></i> <span>Role Master</span>
                 </a>
             </li>
             <li>
-                <a href="<?php echo base_url('user'); ?>">
+                <a href="<?php echo base_url('user-master'); ?>">
                     <i class="fa fa-shopping-cart mr-15"></i> <span>User Master</span>
                 </a>
             </li>
             <li>
-                <a href="<?php echo base_url('userProduct-list'); ?>">
-                    <i class="glyphicon glyphicon-globe mr-15"></i> <span>Client Product & AMC</span>
+                <a href="<?php echo base_url('service-master'); ?>">
+                    <i class="glyphicon glyphicon-globe mr-15"></i> <span>Service Master</span>
                 </a>
             </li>
             <li>
-                <a href="<?php echo base_url('productInvestment-list'); ?>">
-                    <i class="fa fa-area-chart mr-15"></i> <span>Product Investment</span>
+                <a href="<?php echo base_url('activity-master'); ?>">
+                    <i class="fa fa-area-chart mr-15"></i> <span>Activity Master</span>
                 </a>
             </li>
             <li>
@@ -46,10 +46,10 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="<?php echo base_url('role'); ?>"><i class="fa fa-circle-thin"></i>User </a></li>
-                    <li><a href="<?php echo base_url('user'); ?>"><i class="fa fa-circle-thin"></i>Product </a></li>
-                    <li><a href="<?php echo base_url('userProduct-list'); ?>"><i class="fa fa-circle-thin"></i>User Product </a></li>
-                    <li><a href="<?php echo base_url('productInvestment-list'); ?>"><i class="fa fa-circle-thin"></i>Product Investment </a></li>
+                    <li><a href="<?php echo base_url('role-master'); ?>"><i class="fa fa-circle-thin"></i>User </a></li>
+                    <li><a href="<?php echo base_url('user-master'); ?>"><i class="fa fa-circle-thin"></i>Product </a></li>
+                    <li><a href="<?php echo base_url('service-master'); ?>"><i class="fa fa-circle-thin"></i>User Product </a></li>
+                    <li><a href="<?php echo base_url('activity-master'); ?>"><i class="fa fa-circle-thin"></i>Product Investment </a></li>
                     <li><a href="<?php echo base_url('issueMaster-list'); ?>"><i class="fa fa-circle-thin"></i>Issue Master </a></li>
                 </ul>
             </li>-->

@@ -62,5 +62,20 @@ class AdminController extends CI_Controller {
         $this->load->view('footer');
 //        $this->load->view('dashboard/dashboard_js');
     }
+    public function service_master() {
+        $this->load->view('header');
+        $this->load->view('side_bar');
+        $this->load->view('service_master/service_master');
+        $this->load->view('service_master/add_service');
+        $this->load->view('footer');
+    }
+    
+    public function activity_master() {
+        $this->load->view('header');
+        $this->load->view('side_bar');
+        $this->load->view('activity_master/activity_master');
+        $this->load->view('activity_master/add_activity');
+        $this->load->view('footer');
+    }
 
 }
