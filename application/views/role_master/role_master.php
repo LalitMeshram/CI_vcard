@@ -34,7 +34,7 @@
 
                             <!--<div class="box-controls pull-right">-->
                             <!--<button id="row-count" class="btn btn-xs btn-primary">Row count</button>-->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1" id="addRole">Add Role</button>
+                            <button type="button" class="btn btn-primary" id="addRole">Add Role</button>
                             <!--</div>-->
                         </div>
                         <!-- /.box-header -->
@@ -46,29 +46,16 @@
                                             <th>Id</th>
                                             <th>Role</th>
                                             <th>Status</th>
-<!--                                            <th>Email</th>
-                                            <th>Contact No.</th>-->
-<!--                                            <th>Address</th>
-                                            <th>City</th>
-                                            <th>Highway</th>-->
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody id="roleList">
 <!--                                        <tr>
--->                                            <td>1</td>
-                                            <td>master</td><!--
-                                            <td>GANESH GADAKH</td>
-                                            <td>abc@gmail.com</td>
-                                            <td>9422629949</td>
-                                            <td>SHINDE PALASE, NASHIK</td>
-                                            <td>NASHIK</td>
-                                            <td>PUNE NASHIK HIGHWAY</td>
-                                            <td>2018-04-01</td>
-                                            -->
+                                            <td>1</td>
+                                            <td>master</td>
                                             <td>Active</td>
                                             <td>Edit</td>
-                                        </tr>
+                                        </tr>-->
 
 
                                     </tbody>
@@ -77,9 +64,6 @@
                                             <th>Id</th>
                                             <th>Role</th>
                                             <th>Status</th>
-<!--                                            <th>Address</th>
-                                            <th>City</th>
-                                            <th>Highway</th>-->
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>

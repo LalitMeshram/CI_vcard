@@ -27,7 +27,7 @@
         });
     }
 
-    countClients();
+   // countClients();
 
     function countProjects() {
         $.ajax({
@@ -70,7 +70,7 @@
         });
     }
 
-    countProjects();
+    //countProjects();
 
 
     function countIssues() {
@@ -105,7 +105,7 @@
         });
     }
 
-    countIssues();
+   // countIssues();
 
     function totalInvestments() {
         $.ajax({
@@ -134,7 +134,7 @@
 
         });
     }
-    totalInvestments();
+    //totalInvestments();
     
     
     function getAMCAlert() {
@@ -178,7 +178,7 @@
         });
         }
         
-        getAMCAlert();
+       // getAMCAlert();
     
     
 </script>

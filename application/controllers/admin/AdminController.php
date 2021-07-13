@@ -38,20 +38,12 @@ class AdminController extends CI_Controller {
         $this->load->view('side_bar');
         $this->load->view('role_master/role_master');
         $this->load->view('role_master/add_role');
+//        $this->load->view('role_master/update_role');
         $this->load->view('footer');
-//        $this->load->view('role_master/new_js');
-//        $this->load->view('role_master/show_js');
-//        $this->load->view('role_master/update');
-//                $this->load->view('header');
-//        $this->load->view('side_bar');
-//        $this->load->view('user/user');
-//        $this->load->view('user/add_user_modal');
-//        $this->load->view('user/update_user_modal');
-//        $this->load->view('footer');
-//        $this->load->view('user/validation_js');
-//        $this->load->view('user/show_js');
-//        $this->load->view('user/new_js');
-//        $this->load->view('user/update_js');
+        $this->load->view('role_master/show_js');
+        $this->load->view('role_master/new_js');
+        $this->load->view('role_master/update_js');
+
     }
 
     public function user_master() {
@@ -68,14 +60,31 @@ class AdminController extends CI_Controller {
         $this->load->view('service_master/service_master');
         $this->load->view('service_master/add_service');
         $this->load->view('footer');
+        $this->load->view('service_master/show_js');
+        $this->load->view('service_master/new_js');
+        $this->load->view('service_master/update_js');
     }
     
+
     public function activity_master() {
         $this->load->view('header');
         $this->load->view('side_bar');
         $this->load->view('activity_master/activity_master');
         $this->load->view('activity_master/add_activity');
         $this->load->view('footer');
+        $this->load->view('activity_master/show_js');
+        $this->load->view('activity_master/new_js');
+        $this->load->view('activity_master/update_js');
     }
 
+    public function profile_master() {
+        $this->load->view('header');
+        $this->load->view('side_bar');
+        $this->load->view('profile_master/profile_master');
+        $this->load->view('profile_master/add_profile');
+        $this->load->view('footer');
+        $this->load->view('profile_master/show_js');
+        $this->load->view('profile_master/new_js');
+        $this->load->view('profile_master/update_js');
+    }
 }

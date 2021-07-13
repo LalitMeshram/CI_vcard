@@ -284,7 +284,7 @@
         });
     }
 
-    getNotification();
+    //getNotification();
 
 
 

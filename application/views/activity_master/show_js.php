@@ -1,6 +1,6 @@
 <script>
     var roleList = new Map();
-    function getRole() {
+    function getUser() {
         $.ajax({
 
             url: 'role',
@@ -28,7 +28,7 @@
 
         });
     }
-    getRole();
+    getUser();
 
 
     function showList(list) {
@@ -54,7 +54,7 @@
                             <td>` + roles.id + `</td>
                             <td>` + roles.role + `</td>
                             <td>` + status + `</td>
-                            <td> <a href="#" onclick="getRoles(` + roles.id + `)" title="Update Role" ><i class="mdi mdi-tooltip-edit" style="font-size: 20px;"></i></a> </td>
+                            <td> <a href="#" onclick="getUsers(` + roles.id + `)" title="Update Role" ><i class="mdi mdi-tooltip-edit" style="font-size: 20px;"></i></a> </td>
                     </tr>
                     `;
         }
@@ -64,7 +64,7 @@
     }
 
 
-    function getRoles(id) {
+    function getUsers(id) {
         $.ajax({
 
             url: 'role/' + id,

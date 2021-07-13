@@ -34,7 +34,7 @@
 
                             <!--<div class="box-controls pull-right">-->
                             <!--<button id="row-count" class="btn btn-xs btn-primary">Row count</button>-->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1" id="addRole">Add Activity</button>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal4" id="addRole">Add Activity</button>
                             <!--</div>-->
                         </div>
                         <!-- /.box-header -->

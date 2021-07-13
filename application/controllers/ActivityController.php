@@ -3,17 +3,17 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 require APPPATH . 'libraries/REST_Controller.php';
 
-class RoleController extends REST_Controller {
+class ActivityController extends REST_Controller {
 
     public function __construct() {
 
         parent::__construct();
-        $this->load->model('RoleModel', 'role');
+        $this->load->model('ActivityModel', 'activity');
     }
 
-    public function role_get($id = 0) {
+    public function activity_get($id = 0) {
         $response = [];
-        $data = $this->role->get_role($id);
+        $data = $this->activity->get_activity($id);
         if (!empty($data)) {
             $response['data'] = $data;
             $response['msg'] = 'All Data Fetch successfully!';
@@ -26,18 +26,21 @@ class RoleController extends REST_Controller {
         }
     }
 
-    public function role_post() {
+    public function activity_post() {
         $response = [];
-        $data['role'] = $this->post('role');
+        $data['activity_title'] = $this->post('activity_title');
+        $data['category'] = $this->post('category');
+        $data['url'] = $this->post('url');
         $data['is_active'] = ($this->post('is_active') == 'on' || $this->post('is_active') == 1) ? 1 : 0;
+        $data['created_at'] = $this->post('created_at');
 
         $id = $this->post('id');
         if (empty($id)) {
-            $role_id = $this->role->insert_role($data);
+            $activity_id = $this->activity->insert_activity($data);
 
-            if (!empty($role_id)) {
-                $response['msg'] = 'Role created successfully!';
-                $response['id'] = $role_id;
+            if (!empty($activity_id)) {
+                $response['msg'] = 'Activity created successfully!';
+                $response['id'] = $activity_id;
                 $response['status'] = 200;
                 $this->response($response, REST_Controller::HTTP_OK);
             } else {
@@ -47,10 +50,10 @@ class RoleController extends REST_Controller {
                 $this->response($response, REST_Controller::HTTP_BAD_REQUEST);
             }
         } else {
-            if (!empty($this->role->get_role($id))) {
-                $status = $this->role->update_role($id, $data);
+            if (!empty($this->activity->get_activity($id))) {
+                $status = $this->activity->update_activity($id, $data);
                 if ($status) {
-                    $response['msg'] = 'Role updated successfully!';
+                    $response['msg'] = 'Activity updated successfully!';
                     $response['id'] = $id;
                     $response['status'] = 200;
                     $this->response($response, REST_Controller::HTTP_OK);
@@ -64,12 +67,12 @@ class RoleController extends REST_Controller {
         }
     }
 
-    public function role_delete($id) {
+    public function activity_delete($id) {
         $response = [];
-        if (!empty($this->role->get_role($id))) {
-            $result = $this->role->delete_role($id);
+        if (!empty($this->activity->get_activity($id))) {
+            $result = $this->activity->delete_activity($id);
             if ($result == 1) {
-                $response['msg'] = 'Role successfully deleted!';
+                $response['msg'] = 'Activity successfully deleted!';
                 $response['status'] = 200;
                 $this->response($response, REST_Controller::HTTP_OK);
             } else {

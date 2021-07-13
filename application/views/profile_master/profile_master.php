@@ -3,12 +3,12 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Service
+            Profile
         </h1>
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <!--<li class="breadcrumb-item"><a href="#">Master</a></li>-->
-            <li class="breadcrumb-item active">Service Master</li>
+            <li class="breadcrumb-item active">Profile Master</li>
         </ol>
     </section>
 
@@ -18,7 +18,7 @@
         <!-- Default box -->
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">Service List</h3>
+                <h3 class="box-title">Profile List</h3>
 
                 <ul class="box-controls pull-right">
                     <li><a class="box-btn-close" href="#"></a></li>
@@ -34,33 +34,45 @@
 
                             <!--<div class="box-controls pull-right">-->
                             <!--<button id="row-count" class="btn btn-xs btn-primary">Row count</button>-->
-                            <button type="button" class="btn btn-primary" id="addService">Add Service</button>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal5" id="addRole">Add Profile</button>
                             <!--</div>-->
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
                             <div class="table-responsive">
-                                <table id="serviceTable" class="table table-bordered table-striped">
+                                <table id="roleTable" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th>Id</th>
-                                            <th>Service</th>
+                                            <th>Activity</th>
+                                            <th>Category</th>
+                                            <th>Url</th>
+                                            <th>Squence</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="ServiceList">
+                                    <tbody id="roleList">
 <!--                                        <tr>
-                                            <td>1</td>
+-->                                            <td>1</td>
                                             <td>facebook</td>
+                                            <td>facebook</td>
+                                            <td>facebook</td>
+                                            <td>facebook</td>
+                                            <td>Active</td>
                                             <td>Edit</td>
-                                        </tr>-->
+                                        </tr>
 
 
                                     </tbody>
                                     <tfoot>
                                         <tr>
                                             <th>Id</th>
-                                            <th>Service</th>
+                                            <th>Activity</th>
+                                            <th>Category</th>
+                                            <th>Url</th>
+                                            <th>Squence</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
