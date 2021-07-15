@@ -32,7 +32,6 @@ class ActivityController extends REST_Controller {
         $data['category'] = $this->post('category');
         $data['url'] = $this->post('url');
         $data['is_active'] = ($this->post('is_active') == 'on' || $this->post('is_active') == 1) ? 1 : 0;
-        $data['created_at'] = $this->post('created_at');
 
         $id = $this->post('id');
         if (empty($id)) {

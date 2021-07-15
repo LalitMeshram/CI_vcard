@@ -47,5 +47,10 @@ $route['activity/(:num)'] = 'ActivityController/activity/$1';
 $route['profile'] = 'ProfileController/profile';
 $route['profile/(:num)'] = 'ProfileController/profile/$1';
 
+//user master api
+$route['user']='UserController/user';
+
+
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

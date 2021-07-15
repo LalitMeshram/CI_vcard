@@ -21,6 +21,7 @@ class UserMasterModel extends CI_Model {
     public function update_user($data) {
         $this->db->where('id', $data['id']);
         $this->db->update('user_master', $data);
+        return TRUE;
     }
     
     public function delete_user($id) {
