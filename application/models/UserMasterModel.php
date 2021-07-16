@@ -24,13 +24,32 @@ class UserMasterModel extends CI_Model {
     }
 
     public function get_user($id) {
-        $data;
+        $result = [];
+
+        $this->db->select(
+                'um.id,'
+                . 'um.business_name,'
+                . 'um.role_id,'
+                . 'rm.role,'
+                . 'um.first_name,'
+                . 'um.middle_name,'
+                . 'um.last_name,'
+                . 'um.phone1,'
+                . 'um.phone2,'
+                . 'um.designation,'
+                . 'um.whatsapp_number,'
+                . 'um.map_direction_url,'
+                . 'um.website_url,'
+                . 'um.email_id');
+
+        $this->db->join('role_master rm', 'um.role_id = rm.id');
         if ($id != 0) {
-            $data = $query = $this->db->get_where('user_master', array('id' => $id))->row_array();
+            $result['data'] = $query = $this->db->get_where('user_master um', array('um.id' => $id))->result();
         } else {
-            $data = $this->db->get('user_master')->result();
+            $result['data'] = $this->db->get('user_master um')->result_array();
         }
-        return $data;
+        $result['status'] = TRUE;
+        return $result;
     }
 
     public function update_user($data) {
@@ -40,8 +59,8 @@ class UserMasterModel extends CI_Model {
         $this->db->trans_begin();
         $this->db->where('id', $userData['id']);
         $this->db->update('user_master', $userData);
-        
-       $this->setServiceData($userData['id'], $serviceData);
+
+        $this->setServiceData($userData['id'], $serviceData);
         $this->setBussData($userData['id'], $bussData);
         if ($this->db->trans_status() === FALSE) {
             $this->db->trans_rollback();
@@ -50,8 +69,6 @@ class UserMasterModel extends CI_Model {
 
             return TRUE;
         }
-
-
     }
 
     public function delete_user($id) {
@@ -164,6 +181,29 @@ class UserMasterModel extends CI_Model {
         }
     }
 
-    
+    public function getServiceDetails($userid) {
+        $result=[];
+        $sql = "SELECT * FROM `service_type_mapping` WHERE user_id= $userid";
+        $query = $this->db->query($sql);
+        if($query->num_rows()>0){
+            $result['status'] = true;
+            $result['data'] =  $query->result();
+        }else{
+            $result['status'] = false;
+        }
+     return $result;
+    }
+
+    public function getBusinessDetails($userid) {
+        $sql = "SELECT * FROM `business_content` WHERE user_id= $userid";
+        $query = $this->db->query($sql);
+        if($query->num_rows()>0){
+            $result['status'] = true;
+            $result['data'] =  $query->result();
+        }else{
+            $result['status'] = false;
+        }
+     return $result;
+    }
 
 }

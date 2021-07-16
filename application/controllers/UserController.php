@@ -13,9 +13,28 @@ class UserController extends REST_Controller {
 
     public function user_get($id = 0) {
         $response = [];
-        $data = $this->user->get_user($id);
-        if (!empty($data)) {
-            $response['data'] = $data;
+        
+        
+        $result = $this->user->get_user($id);
+        if ($result['status']) {
+            
+            for($i=0;$i<count($result['data']);$i++){
+               $s_details= $this->user->getServiceDetails($result['data'][$i]['id']); 
+               if($s_details['status']){
+                $temp = array('service'=>$s_details['data']);
+               }else{
+                   $temp = array('service'=>[]);
+               }
+               $b_details_1= $this->user->getBusinessDetails($result['data'][$i]['id']); 
+               if($b_details_1['status']){
+                $temp_1 = array('business'=>$b_details_1['data']);
+               }else{
+                   $temp_1 = array('business'=>[]);
+               }
+               $records[] = array_merge($result['data'][$i],$temp,$temp_1); 
+            }
+            
+            $response['data'] = $records;
             $response['msg'] = 'All Data Fetch successfully!';
             $response['status'] = 200;
             $this->response($response, REST_Controller::HTTP_OK);

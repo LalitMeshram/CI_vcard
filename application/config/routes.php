@@ -50,6 +50,7 @@ $route['profile/(:num)'] = 'ProfileController/profile/$1';
 
 //user master api
 $route['user']='UserController/user';
+$route['user/(:num)']='UserController/user/$1';
 
 
 
