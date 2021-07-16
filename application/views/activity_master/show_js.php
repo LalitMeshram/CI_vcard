@@ -1,9 +1,9 @@
 <script>
-    var roleList = new Map();
-    function getUser() {
+    var activityList = new Map();
+    function getActivity() {
         $.ajax({
 
-            url: 'role',
+            url: 'activity',
 
             type: 'GET',
 
@@ -16,9 +16,9 @@
 
                     if (response.data.lenght != 0) {
                         for (var i = 0; i < response.data.length; i++) {
-                            roleList.set(response.data[i].id, response.data[i]);
+                            activityList.set(response.data[i].id, response.data[i]);
                         }
-                        showList(roleList);
+                        showList(activityList);
 
                     }
 
@@ -28,17 +28,17 @@
 
         });
     }
-    getUser();
+    getActivity();
 
 
     function showList(list) {
 
-        $('#roleTable').dataTable().fnDestroy();
-        $('#roleList').empty();
+        $('#activityTable').dataTable().fnDestroy();
+        $('#activityList').empty();
         var tblData = '', badge, status;
         for (let k of list.keys()) {
-            let roles = list.get(k);
-            switch (roles.is_active) {
+            let active = list.get(k);
+            switch (active.is_active) {
                 case '1':
                     status = '<span class="badge badge-pill badge-primary">Active</span>';
                     break;
@@ -51,23 +51,26 @@
 
             tblData += `
                     <tr>
-                            <td>` + roles.id + `</td>
-                            <td>` + roles.role + `</td>
+                            <td>` + active.id + `</td>
+                            <td>` + active.activity_title + `</td>
+                            <td>` + active.category + `</td>
+                            <td>` + active.url + `</td>
                             <td>` + status + `</td>
-                            <td> <a href="#" onclick="getUsers(` + roles.id + `)" title="Update Role" ><i class="mdi mdi-tooltip-edit" style="font-size: 20px;"></i></a> </td>
+                            <td>` + active.created_at + `</td>
+                            <td> <a href="#" onclick="getActive(` + active.id + `)" title="Update Activity" ><i class="mdi mdi-tooltip-edit" style="font-size: 20px;"></i></a> </td>
                     </tr>
                     `;
         }
 
-        $('#roleList').html(tblData);
-        $('#roleTable').DataTable();
+        $('#activityList').html(tblData);
+        $('#activityTable').DataTable();
     }
 
 
-    function getUsers(id) {
+    function getActive(id) {
         $.ajax({
 
-            url: 'role/' + id,
+            url: 'activity/' + id,
 
             type: 'GET',
 
@@ -78,10 +81,14 @@
 
                 if (response.status == 200) {
                     $('#id').val(id);
-                    $('#role').val(response.data.role);
+                    $('#activity_title').val(response.data.activity_title);
+                    $('#category').val(response.data.category);
+                    $('#url').val(response.data.url);
+                    $('#sequence').val(response.data.sequence);
+                    $('#created_at').val(response.data.created_at);
                     (response.data.is_active == 1) ? $("#active").attr('checked', 'checked') : $("#inactive").attr('checked', 'checked');
 
-                    $('#myModal1').modal('toggle');
+                    $('#myModal4').modal('toggle');
 
                 }
 
@@ -93,9 +100,9 @@
 
 
 
-    $('#addRole').click(function () {
-        $('#myModal1').modal('toggle');
-        $("#addRoleForm").trigger("reset");
+    $('#addActivity').click(function () {
+        $('#myModal4').modal('toggle');
+        $("#addActivityForm").trigger("reset");
         $('#id').val('');
     });
 

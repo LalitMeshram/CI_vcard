@@ -1,15 +1,15 @@
 <script>
 
-    $('#addServiceForm').on('submit', function (e) {
+    $('#addProfileForm').on('submit', function (e) {
 
         e.preventDefault();
 
-        var returnVal = $("#addServiceForm").valid();
+        var returnVal = $("#addProfileForm").valid();
         var formdata = new FormData(this);
         if (returnVal) {
             $.ajax({
 
-                url: 'service',
+                url: 'profile',
 
                 type: 'POST',
 
@@ -25,7 +25,7 @@
 
                 success: function (response) {
                     if (response.status == 200) {
-                        $('#myModal3').modal('toggle');
+                        $('#myModal5').modal('toggle');
                         swal("Good job!", response.msg, "success");
                     location.reload(); 
 

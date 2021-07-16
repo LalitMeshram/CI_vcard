@@ -8,7 +8,7 @@
             </div>
             <div class="modal-body">
 
-                <form class="form" id="addRoleForm" method="post">
+                <form class="form" id="addActivityForm" method="post">
                     <div class="box-body">
                         <h4 class="box-title text-info"><i class="ti-user mr-15"></i> Activity Info </h4>
                         <hr class="my-15">
@@ -17,25 +17,33 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label ><span class="error">*</span>Activity Name</label>
-                                    <input type="text" class="form-control" placeholder="role" id="role" name="role">
+                                    <input type="text" class="form-control" placeholder="activity" id="activity_title" name="activity_title">
+                                    <input type="hidden" class="form-control" id="id" name="id">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label ><span class="error">*</span>Select Category</label>
-                                    <input type="text" class="form-control" placeholder="role" id="role" name="role">
+                                    <input type="text" class="form-control" placeholder="category" id="category" name="category">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label ><span class="error">*</span>Url</label>
-                                    <input type="text" class="form-control" placeholder="role" id="role" name="role">
+                                    <input type="text" class="form-control" placeholder="url" id="url" name="url">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label ><span class="error">*</span>Sequence</label>
-                                    <input type="text" class="form-control" placeholder="role" id="role" name="role">
+                                    <input type="text" class="form-control" placeholder="sequence" id="sequence" name="sequence">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">Created At</label>
+
+                                    <input type="date" class="form-control" name="created_at" id="created_at" />
                                 </div>
                             </div>
                             <div class="col-md-6">

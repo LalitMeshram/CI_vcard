@@ -34,44 +34,38 @@
 
                             <!--<div class="box-controls pull-right">-->
                             <!--<button id="row-count" class="btn btn-xs btn-primary">Row count</button>-->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal5" id="addRole">Add Profile</button>
+                            <button type="button" class="btn btn-primary" id="addProfile">Add Profile</button>
                             <!--</div>-->
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
                             <div class="table-responsive">
-                                <table id="roleTable" class="table table-bordered table-striped">
+                                <table id="profileTable" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th>Id</th>
-                                            <th>Activity</th>
-                                            <th>Category</th>
-                                            <th>Url</th>
-                                            <th>Squence</th>
+                                            <th>Role</th>
+                                            <th>Profile Title</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="roleList">
+                                    <tbody id="profileList">
 <!--                                        <tr>
--->                                            <td>1</td>
+                                            <td>1</td>
                                             <td>facebook</td>
-                                            <td>facebook</td>
-                                            <td>facebook</td>
-                                            <td>facebook</td>
+                                            <td>book</td>
                                             <td>Active</td>
                                             <td>Edit</td>
-                                        </tr>
+                                        </tr>-->
 
 
                                     </tbody>
                                     <tfoot>
                                         <tr>
                                             <th>Id</th>
-                                            <th>Activity</th>
-                                            <th>Category</th>
-                                            <th>Url</th>
-                                            <th>Squence</th>
+                                            <th>Role</th>
+                                            <th>Profile Title</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>

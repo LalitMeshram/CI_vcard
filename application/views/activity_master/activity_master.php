@@ -34,34 +34,34 @@
 
                             <!--<div class="box-controls pull-right">-->
                             <!--<button id="row-count" class="btn btn-xs btn-primary">Row count</button>-->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal4" id="addRole">Add Activity</button>
+                            <button type="button" class="btn btn-primary" id="addActivity">Add Activity</button>
                             <!--</div>-->
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
                             <div class="table-responsive">
-                                <table id="roleTable" class="table table-bordered table-striped">
+                                <table id="activityTable" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th>Id</th>
                                             <th>Activity</th>
                                             <th>Category</th>
                                             <th>Url</th>
-                                            <th>Squence</th>
                                             <th>Status</th>
+                                            <th>Created At</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="roleList">
+                                    <tbody id="activityList">
 <!--                                        <tr>
--->                                            <td>1</td>
+                                            <td>1</td>
                                             <td>facebook</td>
                                             <td>facebook</td>
                                             <td>facebook</td>
                                             <td>facebook</td>
                                             <td>Active</td>
                                             <td>Edit</td>
-                                        </tr>
+                                        </tr>-->
 
 
                                     </tbody>
@@ -71,8 +71,8 @@
                                             <th>Activity</th>
                                             <th>Category</th>
                                             <th>Url</th>
-                                            <th>Squence</th>
                                             <th>Status</th>
+                                            <th>Created At</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>

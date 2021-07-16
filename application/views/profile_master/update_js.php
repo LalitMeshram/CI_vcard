@@ -1,6 +1,6 @@
 <script>
 
-    $('#updateRoleForm').on('submit', function (e) {
+    $('#updateProfileForm').on('submit', function (e) {
 
         e.preventDefault();
         
@@ -8,7 +8,7 @@
 
         $.ajax({
 
-            url: 'role',
+            url: 'profile',
 
             type: 'POST',
 
@@ -23,7 +23,7 @@
 
             success: function (response) {
                 if (response.status == 200) {
-                    $('#updateRoleModal').modal('toggle');
+                    $('#updateProfileModal').modal('toggle');
 
                     swal("Good job!", response.msg, "success");
                     location.reload(); 

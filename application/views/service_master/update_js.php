@@ -1,6 +1,6 @@
 <script>
 
-    $('#updateServiceForm').on('submit', function (e) {
+    $('#updateActivityForm').on('submit', function (e) {
 
         e.preventDefault();
         
@@ -8,7 +8,7 @@
 
         $.ajax({
 
-            url: 'service',
+            url: 'activity',
 
             type: 'POST',
 
@@ -23,7 +23,7 @@
 
             success: function (response) {
                 if (response.status == 200) {
-                    $('#updateServiceModal').modal('toggle');
+                    $('#updateActivityModal').modal('toggle');
 
                     swal("Good job!", response.msg, "success");
                     location.reload(); 

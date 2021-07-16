@@ -3,39 +3,42 @@
         <div class="modal-content">
             <!--form start-->
             <div class="modal-header">
-                <h4 class="modal-title" id="myLargeModalLabel">Activity Details</h4>
+                <h4 class="modal-title" id="myLargeModalLabel">Profile Details</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
 
-                <form class="form" id="addRoleForm" method="post">
+                <form class="form" id="addProfileForm" method="post">
                     <div class="box-body">
-                        <h4 class="box-title text-info"><i class="ti-user mr-15"></i> Activity Info </h4>
+                        <h4 class="box-title text-info"><i class="ti-user mr-15"></i> Profile Info </h4>
                         <hr class="my-15">
                         <div class="row">
 
+<!--                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label ><span class="error">*</span>Select Role</label>
+                                    <input type="text" class="form-control" placeholder="Select Role" id="role_id" name="role_id">
+                                    <input type="hidden" class="form-control" id="id" name="id">
+                                </div>
+                            </div>-->
+                            
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label ><span class="error">*</span>Activity Name</label>
-                                    <input type="text" class="form-control" placeholder="role" id="role" name="role">
+                                    <label><span class="error">*</span>Select Role</label>
+                                    <select class="form-control" id="role_id" name="role_id">
+<!--                                        <option> Krushi </option>
+                                        <option> abc </option>
+                                        <option> softsoul </option>
+                                        <option> abcd </option>-->
+                                    </select>
+                                    <input type="hidden" class="form-control" id="id" name="id">
                                 </div>
                             </div>
+                            
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label ><span class="error">*</span>Select Category</label>
-                                    <input type="text" class="form-control" placeholder="role" id="role" name="role">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label ><span class="error">*</span>Url</label>
-                                    <input type="text" class="form-control" placeholder="role" id="role" name="role">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label ><span class="error">*</span>Sequence</label>
-                                    <input type="text" class="form-control" placeholder="role" id="role" name="role">
+                                    <label ><span class="error">*</span>Profile Title</label>
+                                    <input type="text" class="form-control" placeholder="Profile Title" id="title" name="title">
                                 </div>
                             </div>
                             <div class="col-md-6">

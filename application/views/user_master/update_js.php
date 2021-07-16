@@ -8,7 +8,7 @@
 
         $.ajax({
 
-            url: 'user-update',
+            url: 'user',
 
             type: 'POST',
 

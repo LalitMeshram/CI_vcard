@@ -66,7 +66,7 @@
 
                 if (response.status == 200) {
                     $('#id').val(id);
-                    $('#ServiceList').val(response.data.serviceList);
+                    $('#title').val(response.data.title);
 //                    (response.data.is_active == 1) ? $("#active").attr('checked', 'checked') : $("#inactive").attr('checked', 'checked');
 
                     $('#myModal3').modal('toggle');
