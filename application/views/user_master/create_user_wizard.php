@@ -46,7 +46,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label><span class="error">*</span>Select Role</label>
-                                        <select class="form-control select2" style="width: 100%;">
+                                        <select class="form-control select2" style="width: 100%;" id="role_id">
                                             <option selected="selected">Alabama</option>
                                             <option>Alaska</option>
                                             <option>California</option>
@@ -60,7 +60,7 @@
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <label ><span class="error">*</span>Select Profile</label>
-                                        <select class="form-control select2" style="width: 100%;">
+                                        <select class="form-control select2" style="width: 100%;" id="">
                                             <option selected="selected">Alabama</option>
                                             <option>Alaska</option>
                                             <option>California</option>
@@ -77,31 +77,31 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label ><span class="error">*</span>First Name</label>
-                                        <input type="text" class="form-control" placeholder="First Name" id="firstName" name="firstName">
+                                        <input type="text" class="form-control" placeholder="First Name" id="first_name" name="first_name">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label ><span class="error">*</span>Middle Name</label>
-                                        <input type="text" class="form-control" placeholder="Middle Name" id="lastName" name="lastName">
+                                        <input type="text" class="form-control" placeholder="Middle Name" id="middle_name" name="middle_name">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label ><span class="error">*</span>Last Name</label>
-                                        <input type="text" class="form-control" placeholder="Last Name" id="lastName" name="lastName">
+                                        <input type="text" class="form-control" placeholder="Last Name" id="last_name" name="last_name">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label ><span class="error">*</span>Business Name</label>
-                                        <input type="text" class="form-control" placeholder="Business Name" id="businessName" name="businessName">
+                                        <input type="text" class="form-control" placeholder="Business Name" id="business_name" name="business_name">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label ><span class="error">*</span>Destination</label>
-                                        <input type="text" class="form-control" placeholder="Destination" id="destination" name="destination">
+                                        <input type="text" class="form-control" placeholder="Destination" id="designation" name="designation">
                                     </div>
                                 </div>
                             </div>
@@ -110,19 +110,19 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label ><span class="error">*</span>Phone No.1</label>
-                                        <input type="text" class="form-control" placeholder="Phone No" id="phoneNo1" name="phoneNo1">
+                                        <input type="text" class="form-control" placeholder="Phone No" id="phone1" name="phone1">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label ><span class="error">*</span>Phone No.2</label>
-                                        <input type="text" class="form-control" placeholder="Phone No" id="phoneNo2" name="phoneNo2">
+                                        <input type="text" class="form-control" placeholder="Phone No" id="phone2" name="phone2">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label ><span class="error">*</span>Whatsapp No.</label>
-                                        <input type="text" class="form-control" placeholder="Whatsapp No" id="whatsapp" name="whatsapp">
+                                        <input type="text" class="form-control" placeholder="Whatsapp No" id="whatsapp_number" name="whatsapp_number">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -134,13 +134,13 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label ><span class="error">*</span>Map Url</label>
-                                        <input type="text" class="form-control" placeholder="Map Url" id="mapurl" name="mapurl">
+                                        <input type="text" class="form-control" placeholder="Map Url" id="map_direction_url" name="map_direction_url">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label ><span class="error">*</span>Website Url</label>
-                                        <input type="text" class="form-control" placeholder="Website Url" id="web_url" name="web_url">
+                                        <input type="text" class="form-control" placeholder="Website Url" id="website_url" name="website_url">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -152,7 +152,7 @@
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label class="control-label">About Us</label>
-                                        <textarea class="form-control" placeholder="Place some text here" name="aboutus" id="aboutus" rows="1"></textarea>
+                                        <textarea class="form-control" placeholder="Place some text here" name="about_us" id="about_us" rows="1"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -185,25 +185,25 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label ><span class="error">*</span>Total Amount</label>
-                                        <input type="text" class="form-control" placeholder="Phone No" id="phoneNo1" name="phoneNo1">
+                                        <input type="text" class="form-control" placeholder="Total Amount" id="total_amount" name="total_amount">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label ><span class="error">*</span>Paid Amount</label>
-                                        <input type="text" class="form-control" placeholder="Phone No" id="phoneNo1" name="phoneNo1">
+                                        <input type="text" class="form-control" placeholder="Paid Amount" id="paid_amount" name="paid_amount">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label ><span class="error">*</span>Discount Amount</label>
-                                        <input type="text" class="form-control" placeholder="Phone No" id="phoneNo1" name="phoneNo1">
+                                        <input type="text" class="form-control" placeholder="Discount Amount" id="discount" name="discount">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label ><span class="error">*</span>Renewal Amount</label>
-                                        <input type="text" class="form-control" placeholder="Phone No" id="phoneNo1" name="phoneNo1">
+                                        <input type="text" class="form-control" placeholder="Renewal Amount" id="renewal_amount" name="renewal_amount">
                                     </div>
                                 </div>
 
@@ -211,14 +211,14 @@
                                     <div class="form-group">
                                         <label class="control-label">Installation Date</label>
 
-                                        <input type="date" class="form-control" name="installdate" id="installdate" />
+                                        <input type="date" class="form-control" name="installation_date" id="installation_date" />
                                     </div>
                                 </div>
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label class="control-label">Next Installation Date</label>
 
-                                        <input type="date" class="form-control" name="nxtinstalldate" id="nxtinstalldate" />
+                                        <input type="date" class="form-control" name="next_renewal_date" id="next_renewal_date" />
                                     </div>
                                 </div>
                             </div>
