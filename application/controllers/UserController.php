@@ -56,7 +56,12 @@ class UserController extends REST_Controller {
         $data['modified_by'] = $this->post('modified_by');
         $data['is_active'] = ($this->post('is_active') == 'on' || $this->post('is_active') == 1) ? 1 : 0;
         $id = $this->post('id');
-
+        
+        $service_data = $this->input->post('serviceData');
+        $service_data = json_decode($service_data);
+        
+        $buss_data = $this->input->post('bussData');
+        $buss_data = json_decode($buss_data);
 
 
         if (empty($id)) {
@@ -68,13 +73,19 @@ class UserController extends REST_Controller {
                 $file_data['file_size'] = $_FILES['profile_image']['size'];
                 $data['profile_image'] = $this->upload_docs($file_data);
             }
-            $user_id = $this->user->insert_user($data);
+            
+            $allData=array(
+                'userData'=>$data,
+                'serviceData'=>$service_data,
+                'bussData'=>$buss_data
+            );
+            $result = $this->user->insert_user($allData);
 
 
 
-            if (!empty($user_id)) {
+            if ($result['status']) {
                 $response['msg'] = 'User created successfully!';
-                $response['id'] = $user_id;
+                $response['id'] = $result['userid'];
                 $response['status'] = 200;
                 $this->response($response, REST_Controller::HTTP_OK);
             } else {
@@ -96,7 +107,12 @@ class UserController extends REST_Controller {
                     $file_data['file_size'] = $_FILES['profile_image']['size'];
                     $data['profile_image'] = $this->upload_docs($file_data);
                 }
-                $status = $this->user->update_user($data);
+                $allData=array(
+                'userData'=>$data,
+                'serviceData'=>$service_data,
+                'bussData'=>$buss_data
+            );
+                $status = $this->user->update_user($allData);
                 if ($status) {
                     $response['msg'] = 'User updated successfully!';
                     $response['id'] = $id;

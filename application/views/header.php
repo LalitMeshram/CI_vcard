@@ -34,7 +34,8 @@
 
         <!-- SoftMaterial admin skins -->
         <link rel="stylesheet" href="<?php echo base_url() . 'resource/css/skins/_all-skins.css'; ?>">	
-        
+        <!-- Select2 -->
+	<link rel="stylesheet" href="<?php echo base_url() .'resource/assets/vendor_components/select2/dist/css/select2.min.css';?>">	
 
         <style>
             .error{
