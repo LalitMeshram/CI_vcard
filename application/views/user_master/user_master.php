@@ -34,7 +34,8 @@
 
                             <!--<div class="box-controls pull-right">-->
                             <!--<button id="row-count" class="btn btn-xs btn-primary">Row count</button>-->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal3" id="addRole">Add User</button>
+                            <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal3" id="addRole">Add User</button>-->
+                            <a href="user-form" class="btn btn-primary" id="addRole">Add User</a>
                             <!--</div>-->
                         </div>
                         <!-- /.box-header -->

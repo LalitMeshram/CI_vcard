@@ -7,17 +7,27 @@
 </style>
 
 
-<div class="modal fade bs-example-modal-lg" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <!--form start-->
-            <div class="modal-header">
-                <h4 class="modal-title" id="myLargeModalLabel">User Details</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <a href="user-master" class="btn btn-primary" id="addRole">Back</a>
+    </section>
+    <!-- Main content -->
+    <section class="content">
+
+        <!-- Default box -->
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">User List</h3>
+
+                <ul class="box-controls pull-right">
+                    <li><a class="box-btn-close" href="#"></a></li>
+                    <li><a class="box-btn-slide" href="#"></a></li>	
+                    <li><a class="box-btn-fullscreen" href="#"></a></li>
+                </ul>
             </div>
-            <div class="modal-body">
-
-
+            <div class="box-body">
                 <div class="box-body wizard-content">
                     <form action="#" class="tab-wizard wizard-circle">
 
@@ -28,7 +38,7 @@
                                 <div class="col-md-3">
                                     <div class="form-group text-center">
                                         <img src="<?php echo base_url('/admin_assets/img/doc_pre.png'); ?>" alt="" id="otherdpre"  width="100px" height="100px"/>
-                                        <label for="profile_image" style="cursor: pointer;" class="h6"><u>Upload...</u></label>
+                                        <p><label for="profile_image" style="cursor: pointer;" class="h6"><u>Upload...</u></label></p>
                                         <input type="file" class="form-control" name="profile_image" id="profile_image" accept="image/*"  onchange="loadFile(event, 'otherdpre')" />
 
                                     </div>
@@ -232,15 +242,15 @@
                                         </select>
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label ><span class="error">*</span>Url</label>
                                         <input type="text" class="form-control" placeholder="" id="url">
                                     </div>
                                 </div>
-                                
-                                
+
+
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label ><span class="error">*</span>Sequence</label>
@@ -284,7 +294,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            
+
                             <h6>Business Details</h6>
                             <div class="row">
                                 <div class="col-sm-4">
@@ -296,16 +306,16 @@
                                         </select>
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-sm-4">
                                     <div class="form-group">
                                         <label ><span class="error">*</span>Product/Service/Business</label>
                                         <input type="text" class="form-control" placeholder="" id="business">
                                     </div>
                                 </div>
-                                
-                                
-                                                                
+
+
+
 
                                 <div class="col-sm-3">
                                     <div class="row" style="margin-top: 25px;">
@@ -336,12 +346,10 @@
                         </section>
                     </form>
                 </div>
-
-                <!--form end-->
             </div>
-            <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-    </div>
+            <!-- /.box -->
 
+    </section>
+    <!-- /.content -->
 </div>
+<!-- /.content-wrapper -->

@@ -51,7 +51,14 @@ class AdminController extends CI_Controller {
         $this->load->view('side_bar');
         $this->load->view('user_master/user_master');
 //        $this->load->view('user_master/add_user');
-        $this->load->view('user_master/add_user_wizard');
+//        $this->load->view('user_master/add_user_wizard');
+        $this->load->view('footer');
+//        $this->load->view('user_master/other_info_js');
+    }
+    public function user_form() {
+        $this->load->view('header');
+        $this->load->view('side_bar');
+        $this->load->view('user_master/create_user_wizard');
         $this->load->view('footer');
         $this->load->view('user_master/other_info_js');
     }

@@ -17,6 +17,7 @@ $route['send_resetpassword-link'] = 'LoginController/forgate_password_link_sendm
 $route['role-master'] = 'admin/AdminController/role_master';
 //user mstre ui
 $route['user-master'] = 'admin/AdminController/user_master';
+$route['user-form'] = 'admin/AdminController/user_form';
 
 //service mster ui
 $route['service-master'] = 'admin/AdminController/service_master';
