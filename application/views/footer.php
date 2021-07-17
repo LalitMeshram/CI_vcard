@@ -243,7 +243,7 @@
 <!-- steps  -->
 	<script src="<?php echo base_url() .'resource/assets/vendor_components/jquery-steps-master/build/jquery.steps.js';?>"></script>
   <!-- wizard  -->
-    <script src="<?php echo base_url() .'resource/js/pages/steps.js';?>"></script>
+    <!--<script src="<?php // echo base_url() .'resource/js/pages/steps.js';?>"></script>-->
     
     	<!-- Select2 -->
 	<script src="<?php echo base_url() .'resource/assets/vendor_components/select2/dist/js/select2.full.js';?>"></script>

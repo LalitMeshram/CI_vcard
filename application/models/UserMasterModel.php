@@ -9,7 +9,7 @@ class UserMasterModel extends CI_Model {
         $result = array();
 
         $this->db->trans_begin();
-        $this->db->insert('user_master', $data);
+        $this->db->insert('user_master', $userData);
         $result['userid'] = $this->db->insert_id();
         $this->setServiceData($result['userid'], $serviceData);
         $this->setBussData($result['userid'], $bussData);
@@ -44,7 +44,7 @@ class UserMasterModel extends CI_Model {
 
         $this->db->join('role_master rm', 'um.role_id = rm.id');
         if ($id != 0) {
-            $result['data'] = $query = $this->db->get_where('user_master um', array('um.id' => $id))->result();
+            $result['data'] = $query = $this->db->get_where('user_master um', array('um.id' => $id))->result_array();
         } else {
             $result['data'] = $this->db->get('user_master um')->result_array();
         }
@@ -78,7 +78,7 @@ class UserMasterModel extends CI_Model {
     public function setServiceData($userid, $serviceData) {
         foreach ($serviceData as $service) {
             $image_path = '';
-            if (isset($service->otherImage)) {
+            if (isset($service->otherImage) && $service->flag==1) {
                 $image_path = $this->upload_file($service->otherImage);
             }
             $serviceArr = array(
@@ -86,7 +86,7 @@ class UserMasterModel extends CI_Model {
                 "service_type_id" => $service->service_type_id,
                 "value" => $service->value,
                 "image" => $image_path,
-                "sequence" => $service->sequence,
+                "flag" => $service->flag,
             );
             $this->db->insert('service_type_mapping', $serviceArr);
             $serviceid = $this->db->insert_id();
@@ -94,7 +94,7 @@ class UserMasterModel extends CI_Model {
     }
 
     function upload_file($encoded_string) {
-        $target_dir = '/resource/img/pay/'; // add the specific path to save the file
+        $target_dir = 'resource/img/pay/'; // add the specific path to save the file
         $filedata = explode(',', $encoded_string);
         $decoded_file = base64_decode($filedata[1]);
         //$decoded_file = base64_decode($encoded_string); // decode the file
@@ -102,6 +102,8 @@ class UserMasterModel extends CI_Model {
         $extension = $this->mime2ext($mime_type); // extract extension from mime type
         $file = uniqid() . '.' . $extension; // rename file as a unique name
         $file_dir = $target_dir . uniqid() . '.' . $extension;
+//        $file = 'lalit1' . '.' . $extension; // rename file as a unique name
+//        $file_dir = $target_dir . 'lalit1' . '.' . $extension;
         try {
             file_put_contents($file_dir, $decoded_file); // save
             return $file_dir;
@@ -174,7 +176,8 @@ class UserMasterModel extends CI_Model {
             $bussArr = array(
                 "user_id" => $userid,
                 "type" => $business->type,
-                "content" => $business->content
+                "content" => $business->content,
+                "sequence" => $business->sequence,
             );
             $this->db->insert('business_content', $bussArr);
             $bussid = $this->db->insert_id();

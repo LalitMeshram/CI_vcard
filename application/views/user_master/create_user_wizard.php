@@ -29,10 +29,10 @@
             </div>
             <div class="box-body">
                 <div class="box-body wizard-content">
-                    <form action="#" class="tab-wizard wizard-circle">
+                    <form action="#" class="tab-wizard wizard-circle" id="addUserForm">
 
                         <!-- Step 1 -->
-                        <h6>Personal Information</h6>
+                        <h6>Personal Detail</h6>
                         <section>
                             <div class="row">
                                 <div class="col-md-3">
@@ -43,31 +43,27 @@
 
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label><span class="error">*</span>Select Role</label>
-                                        <select class="form-control select2" style="width: 100%;" id="role_id">
-                                            <option selected="selected">Alabama</option>
-                                            <option>Alaska</option>
-                                            <option>California</option>
-                                            <option>Delaware</option>
-                                            <option>Tennessee</option>
-                                            <option>Texas</option>
-                                            <option>Washington</option>
+                                        <select class="form-control select2" style="width: 100%;" name="role_id" id="role_id">
+                                            
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-5">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label ><span class="error">*</span>Select Profile</label>
-                                        <select class="form-control select2" style="width: 100%;" id="">
-                                            <option selected="selected">Alabama</option>
-                                            <option>Alaska</option>
-                                            <option>California</option>
-                                            <option>Delaware</option>
-                                            <option>Tennessee</option>
-                                            <option>Texas</option>
-                                            <option>Washington</option>
+                                        <select class="form-control select2" style="width: 100%;" name="profile_id" id="profile_id">
+                                           
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label ><span class="error">*</span>Select Agent</label>
+                                        <select class="form-control select2" style="width: 100%;" name="agent_id" id="agent_id">
+                                           
                                         </select>
                                     </div>
                                 </div>
@@ -179,9 +175,26 @@
                             </div>
                         </section>
                         <!-- Step 3 -->
-                        <h6>Transaction Information</h6>
+                        <h6>Transaction Detail</h6>
                         <section>
                             <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label ><span class="error">*</span>Term(year)</label>
+                                        <select class="form-control select2" style="width: 100%;" name="term" id="term">
+                                            <option>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                            <option>9</option>
+                                            <option>10</option>
+                                        </select>
+                                    </div>
+                                </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label ><span class="error">*</span>Total Amount</label>
@@ -221,48 +234,43 @@
                                         <input type="date" class="form-control" name="next_renewal_date" id="next_renewal_date" />
                                     </div>
                                 </div>
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Remark</label>
+                                        <textarea rows="1" class="form-control" name="remark" id="remark"></textarea>
+                                    </div>
+                                </div>
                             </div>
                         </section>
                         <!-- Step 4 -->
-                        <h6>Other Information</h6>
+                        <h6>Social Detail</h6>
                         <section class="bg-white">
-                            <h6>Service Details</h6>
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label ><span class="error">*</span>Select Service</label>
                                         <select class="form-control select2" style="width: 100%;" id="service">
-                                            <option selected="selected">Alabama</option>
-                                            <option>Alaska</option>
-                                            <option>California</option>
-                                            <option>Delaware</option>
-                                            <option>Tennessee</option>
-                                            <option>Texas</option>
-                                            <option>Washington</option>
+                                            
                                         </select>
                                     </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label ><span class="error">*</span>Url</label>
+                                        <label ><span class="error">*</span><span id="urlLabel">Url</span></label>
                                         <input type="text" class="form-control" placeholder="" id="url">
+                                        <input type="hidden"  id="hiddenflag" value="0">
                                     </div>
                                 </div>
 
 
-                                <div class="col-sm-3">
-                                    <div class="form-group">
-                                        <label ><span class="error">*</span>Sequence</label>
-                                        <input type="number" class="form-control" placeholder="" id="seq">
-                                    </div>
-                                </div>
+                                
                                 <div class="col-sm-3">
                                     <div class="form-group">
                                         <label class="control-label"><span class="error">*</span>Select Image</label>
 
                                         <input class="form-control" id="other_image" name="other_image" type="file" onchange="loadFile(event, 'other_imagepre')" />
-                                        <img src="<?php echo base_url('/admin_assets/img/doc_pre.png'); ?>" alt="" id="other_imagepre" width="20px" height="20px" />
+                                        <img src="<?php echo base_url('resource/img/noimage.png'); ?>" alt="" id="other_imagepre" width="20px" height="20px" />
                                     </div>
                                 </div>
 
@@ -282,10 +290,11 @@
                                 <table class="table table-striped table-sm" id="otherTable">
                                     <thead class="thead-dark">
                                         <tr>
+                                            <th scope="col">Id</th>
                                             <th scope="col">Service</th>
-                                            <th scope="col">Url</th>
+                                            <th scope="col">Url/Number</th>
                                             <th scope="col">Image</th>
-                                            <th scope="col">Sequence</th>
+                                            
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
@@ -295,9 +304,13 @@
                                 </table>
                             </div>
 
-                            <h6>Business Details</h6>
+                            
+                        </section>
+                        <h6>Business Detail</h6>
+                        <section class="bg-white">
+                            
                             <div class="row">
-                                <div class="col-sm-4">
+                                <div class="col-sm-3">
                                     <div class="form-group">
                                         <label ><span class="error">*</span>Select Type</label>
                                         <select class="form-control select2" style="width: 100%;" id="product">
@@ -307,14 +320,19 @@
                                     </div>
                                 </div>
 
-                                <div class="col-sm-4">
+                                <div class="col-sm-3">
                                     <div class="form-group">
                                         <label ><span class="error">*</span>Product/Service/Business</label>
                                         <input type="text" class="form-control" placeholder="" id="business">
                                     </div>
                                 </div>
 
-
+                                <div class="col-sm-3">
+                                    <div class="form-group">
+                                        <label ><span class="error">*</span>Sequence</label>
+                                        <input type="number" class="form-control" value="1" id="seq" min="1" max="10">
+                                    </div>
+                                </div>
 
 
                                 <div class="col-sm-3">
@@ -335,6 +353,7 @@
                                         <tr>
                                             <th scope="col">Type</th>
                                             <th scope="col">Product/Service/Business</th>
+                                            <th scope="col">Sequence</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>

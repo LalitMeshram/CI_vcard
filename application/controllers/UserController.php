@@ -48,6 +48,7 @@ class UserController extends REST_Controller {
     public function user_post() {
         $response = [];
         $data['role_id'] = $this->post('role_id');
+        $data['agent_id'] = $this->post('agent_id');
         $data['business_name'] = $this->post('business_name');
         $data['designation'] = $this->post('designation');
         $data['first_name'] = $this->post('first_name');
@@ -71,12 +72,12 @@ class UserController extends REST_Controller {
         $data['term'] = $this->post('term');
         $data['remark'] = $this->post('remark');
         $data['discount_id'] = $this->post('discount_id');
-        $data['created_by'] = $this->post('created_by');
-        $data['modified_by'] = $this->post('modified_by');
+        
+        
         $data['is_active'] = ($this->post('is_active') == 'on' || $this->post('is_active') == 1) ? 1 : 0;
         $id = $this->post('id');
         
-        $service_data = $this->input->post('serviceData');
+        $service_data = $this->input->post('socialData');
         $service_data = json_decode($service_data);
         
         $buss_data = $this->input->post('bussData');
@@ -98,6 +99,7 @@ class UserController extends REST_Controller {
                 'serviceData'=>$service_data,
                 'bussData'=>$buss_data
             );
+            $data['created_by'] = $this->post('created_by');
             $result = $this->user->insert_user($allData);
 
 
@@ -114,6 +116,7 @@ class UserController extends REST_Controller {
                 $this->response($response, REST_Controller::HTTP_BAD_REQUEST);
             }
         } else {
+            $data['modified_by'] = $this->post('modified_by');
             $userData = $this->user->get_user($id);
             if (!empty($userData)) {
                 $data['id'] = $id;
