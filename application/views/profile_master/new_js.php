@@ -1,3 +1,6 @@
+<?php
+$session_data = $this->session->userdata('loginSession');
+?>
 <script>
 
     $('#addProfileForm').on('submit', function (e) {
@@ -12,6 +15,9 @@
                 url: 'profile',
 
                 type: 'POST',
+                headers: {
+                    "Authorization": "<?php echo $session_data['token']; ?>"
+                },
 
                 data: formdata,
 
@@ -27,7 +33,7 @@
                     if (response.status == 200) {
                         $('#myModal5').modal('toggle');
                         swal("Good job!", response.msg, "success");
-                    location.reload(); 
+                        location.reload();
 
                     } else {
 

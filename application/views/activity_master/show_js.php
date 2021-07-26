@@ -1,16 +1,22 @@
+<?php
+$session_data = $this->session->userdata('loginSession');
+?>
 <script>
     var activityList = new Map();
     function getActivity() {
         $.ajax({
 
-            url: 'activity',
+            url: '<?php echo base_url();?>activity',
 
             type: 'GET',
+            headers: {
+                "Authorization": "<?php echo $session_data['token']; ?>"
+            },
 
             dataType: 'json',
 
             success: function (response) {
-            
+
 
                 if (response.status == 200) {
 
@@ -70,9 +76,12 @@
     function getActive(id) {
         $.ajax({
 
-            url: 'activity/' + id,
+            url: '<?php echo base_url();?>activity/' + id,
 
             type: 'GET',
+            headers: {
+                "Authorization": "<?php echo $session_data['token'];?>"
+            },
 
             dataType: 'json',
 

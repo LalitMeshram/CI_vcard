@@ -19,7 +19,7 @@ class ProfileModel extends CI_Model {
         $this->db->join('role_master rm', 'pm.role_id = rm.id');
 
         if ($id != 0) {
-            $data = $query = $this->db->get_where('profile_master pm', array('pm.role_id' => $id))->result();
+            $data = $query = $this->db->get_where('profile_master pm', array('pm.id' => $id))->row_array();
         } else {
             $data = $this->db->get('profile_master pm')->result();
         }

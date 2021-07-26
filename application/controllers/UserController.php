@@ -2,6 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 require APPPATH . 'libraries/REST_Controller.php';
+require APPPATH . '/libraries/CreatorJwt.php';
 
 class UserController extends REST_Controller {
 
@@ -9,31 +10,33 @@ class UserController extends REST_Controller {
 
         parent::__construct();
         $this->load->model('UserMasterModel', 'user');
+        $this->objOfJwt = new CreatorJwt();
     }
 
     public function user_get($id = 0) {
         $response = [];
-        
-        
+        $received_Token = $this->input->request_headers();
+        $jwtData = $this->objOfJwt->DecodeToken($received_Token['Authorization']);
+
         $result = $this->user->get_user($id);
         if ($result['status']) {
-            
-            for($i=0;$i<count($result['data']);$i++){
-               $s_details= $this->user->getServiceDetails($result['data'][$i]['id']); 
-               if($s_details['status']){
-                $temp = array('service'=>$s_details['data']);
-               }else{
-                   $temp = array('service'=>[]);
-               }
-               $b_details_1= $this->user->getBusinessDetails($result['data'][$i]['id']); 
-               if($b_details_1['status']){
-                $temp_1 = array('business'=>$b_details_1['data']);
-               }else{
-                   $temp_1 = array('business'=>[]);
-               }
-               $records[] = array_merge($result['data'][$i],$temp,$temp_1); 
+
+            for ($i = 0; $i < count($result['data']); $i++) {
+                $s_details = $this->user->getServiceDetails($result['data'][$i]['id']);
+                if ($s_details['status']) {
+                    $temp = array('service' => $s_details['data']);
+                } else {
+                    $temp = array('service' => []);
+                }
+                $b_details_1 = $this->user->getBusinessDetails($result['data'][$i]['id']);
+                if ($b_details_1['status']) {
+                    $temp_1 = array('business' => $b_details_1['data']);
+                } else {
+                    $temp_1 = array('business' => []);
+                }
+                $records[] = array_merge($result['data'][$i], $temp, $temp_1);
             }
-            
+
             $response['data'] = $records;
             $response['msg'] = 'All Data Fetch successfully!';
             $response['status'] = 200;
@@ -47,9 +50,11 @@ class UserController extends REST_Controller {
 
     public function user_post() {
         $response = [];
+        $received_Token = $this->input->request_headers();
+        $jwtData = $this->objOfJwt->DecodeToken($received_Token['Authorization']);
         $data['role_id'] = $this->post('role_id');
         $data['agent_id'] = $this->post('agent_id');
-        
+
         $data['business_name'] = $this->post('business_name');
         $data['designation'] = $this->post('designation');
         $data['first_name'] = $this->post('first_name');
@@ -73,14 +78,14 @@ class UserController extends REST_Controller {
         $data['term'] = $this->post('term');
         $data['remark'] = $this->post('remark');
         $data['discount_id'] = $this->post('discount_id');
-        
-        
+
+
         $data['is_active'] = ($this->post('is_active') == 'on' || $this->post('is_active') == 1) ? 1 : 0;
         $id = $this->post('id');
-        
+
         $service_data = $this->input->post('socialData');
         $service_data = json_decode($service_data);
-        
+
         $buss_data = $this->input->post('bussData');
         $buss_data = json_decode($buss_data);
 
@@ -96,11 +101,11 @@ class UserController extends REST_Controller {
             }
             $data['created_by'] = $this->post('created_by');
             $data['modified_by'] = $this->post('created_by');
-            
-            $allData=array(
-                'userData'=>$data,
-                'serviceData'=>$service_data,
-                'bussData'=>$buss_data
+
+            $allData = array(
+                'userData' => $data,
+                'serviceData' => $service_data,
+                'bussData' => $buss_data
             );
             $result = $this->user->insert_user($allData);
 
@@ -131,11 +136,11 @@ class UserController extends REST_Controller {
                     $file_data['file_size'] = $_FILES['profile_image']['size'];
                     $data['profile_image'] = $this->upload_docs($file_data);
                 }
-                $allData=array(
-                'userData'=>$data,
-                'serviceData'=>$service_data,
-                'bussData'=>$buss_data
-            );
+                $allData = array(
+                    'userData' => $data,
+                    'serviceData' => $service_data,
+                    'bussData' => $buss_data
+                );
                 $status = $this->user->update_user($allData);
                 if ($status) {
                     $response['msg'] = 'User updated successfully!';
@@ -154,6 +159,8 @@ class UserController extends REST_Controller {
 
     public function user_delete($id) {
         $response = [];
+        $received_Token = $this->input->request_headers();
+        $jwtData = $this->objOfJwt->DecodeToken($received_Token['Authorization']);
         if (!empty($this->user->get_role($id))) {
             $result = $this->user->delete_role($id);
             if ($result == 1) {

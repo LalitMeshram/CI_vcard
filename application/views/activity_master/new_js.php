@@ -1,3 +1,6 @@
+<?php
+$session_data = $this->session->userdata('loginSession');
+?>
 <script>
 
     $('#addActivityForm').on('submit', function (e) {
@@ -9,10 +12,12 @@
         if (returnVal) {
             $.ajax({
 
-                url: 'activity',
+                url: '<?php echo base_url();?>activity',
 
                 type: 'POST',
-
+                headers: {
+                    "Authorization": "<?php echo $session_data['token']; ?>"
+                },
                 data: formdata,
 
                 cache: false,
@@ -27,7 +32,7 @@
                     if (response.status == 200) {
                         $('#myModal4').modal('toggle');
                         swal("Good job!", response.msg, "success");
-                    location.reload(); 
+                        location.reload();
 
                     } else {
 

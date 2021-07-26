@@ -2,6 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 require APPPATH . 'libraries/REST_Controller.php';
+require APPPATH . '/libraries/CreatorJwt.php';
 
 class ProfileController extends REST_Controller {
 
@@ -9,10 +10,13 @@ class ProfileController extends REST_Controller {
 
         parent::__construct();
         $this->load->model('ProfileModel', 'profile');
+        $this->objOfJwt = new CreatorJwt();
     }
 
     public function profile_get($id = 0) {
         $response = [];
+        $received_Token = $this->input->request_headers();
+        $jwtData = $this->objOfJwt->DecodeToken($received_Token['Authorization']);
         $data = $this->profile->get_profile($id);
         if (!empty($data)) {
             $response['data'] = $data;
@@ -28,6 +32,8 @@ class ProfileController extends REST_Controller {
 
     public function profile_post() {
         $response = [];
+        $received_Token = $this->input->request_headers();
+        $jwtData = $this->objOfJwt->DecodeToken($received_Token['Authorization']);
         $data['role_id'] = $this->post('role_id');
         $data['title'] = $this->post('title');
         $data['is_active'] = ($this->post('is_active') == 'on' || $this->post('is_active') == 1) ? 1 : 0;
@@ -68,6 +74,8 @@ class ProfileController extends REST_Controller {
 
     public function profile_delete($id) {
         $response = [];
+        $received_Token = $this->input->request_headers();
+        $jwtData = $this->objOfJwt->DecodeToken($received_Token['Authorization']);
         if (!empty($this->profile->get_profile($id))) {
             $result = $this->profile->delete_profile($id);
             if ($result == 1) {

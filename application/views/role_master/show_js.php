@@ -2,23 +2,22 @@
 $session_data = $this->session->userdata('loginSession');
 ?>
 <script>
-    
+
 //            let token=JSON.parse(sessionStorage.getItem('token'));
-    
+
     var roleList = new Map();
     function getRole() {
-            
+
         $.ajax({
 
-            url: '<?php echo base_url();?>role',
+            url: '<?php echo base_url(); ?>role',
 
             type: 'GET',
 
             dataType: 'json',
-            
-            
+
             headers: {
-                "Authorization": "<?php echo $session_data['token'];?>"
+                "Authorization": "<?php echo $session_data['token']; ?>"
             },
 
             success: function (response) {
@@ -79,9 +78,12 @@ $session_data = $this->session->userdata('loginSession');
     function getRoles(id) {
         $.ajax({
 
-            url: 'role/' + id,
+            url: '<?php echo base_url();?>role/' + id,
 
             type: 'GET',
+            headers: {
+                "Authorization": "<?php echo $session_data['token']; ?>"
+            },
 
             dataType: 'json',
 

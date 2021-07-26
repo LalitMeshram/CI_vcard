@@ -1,3 +1,6 @@
+<?php
+$session_data = $this->session->userdata('loginSession');
+?>
 <script>
     var profileList = new Map();
     getRole();
@@ -7,11 +10,14 @@
             url: 'profile',
 
             type: 'GET',
+            headers: {
+                "Authorization": "<?php echo $session_data['token']; ?>"
+            },
 
             dataType: 'json',
 
             success: function (response) {
-            
+
 
                 if (response.status == 200) {
 
@@ -69,9 +75,12 @@
     function getUsers(id) {
         $.ajax({
 
-            url: 'profile/' + id,
+            url: '<?php echo base_url();?>profile/' + id,
 
             type: 'GET',
+            headers: {
+                "Authorization": "<?php echo $session_data['token']; ?>"
+            },
 
             dataType: 'json',
 
@@ -80,7 +89,7 @@
 
                 if (response.status == 200) {
                     $('#id').val(id);
-                    $('#role').val(response.data.role);
+                    $('#role_id').val(response.data.role_id);
                     $('#title').val(response.data.title);
                     (response.data.is_active == 1) ? $("#active").attr('checked', 'checked') : $("#inactive").attr('checked', 'checked');
 
@@ -101,15 +110,19 @@
         $("#addProfileForm").trigger("reset");
         $('#id').val('');
     });
-    
+
     function getRole() {
 
 
         $.ajax({
 
-            url: 'role',
+            url: '<?php echo base_url();?>role',
 
             type: 'GET',
+            
+            headers: {
+                "Authorization": "<?php echo $session_data['token']; ?>"
+            },
 
             async: false,
 
@@ -125,7 +138,6 @@
                         }
 
                     }
-                    $('#role_id').html(userlistData);
                     $('#role_id').html(userlistData);
                 }
 

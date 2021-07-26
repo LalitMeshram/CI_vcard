@@ -6,11 +6,11 @@ $session_data = $this->session->userdata('loginSession');
     function getService() {
         $.ajax({
 
-            url: '<?php echo base_url();?>service',
+            url: '<?php echo base_url(); ?>service',
 
             type: 'GET',
             headers: {
-                "Authorization": "<?php echo $session_data['token'];?>"
+                "Authorization": "<?php echo $session_data['token']; ?>"
             },
             dataType: 'json',
 
@@ -60,9 +60,12 @@ $session_data = $this->session->userdata('loginSession');
     function getServices(id) {
         $.ajax({
 
-            url: 'service/' + id,
+            url: '<?php echo base_url(); ?>service/' + id,
 
             type: 'GET',
+            headers: {
+                "Authorization": "<?php echo $session_data['token']; ?>"
+            },
 
             dataType: 'json',
 
