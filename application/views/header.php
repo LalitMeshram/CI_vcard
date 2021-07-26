@@ -1,9 +1,9 @@
 <?php 
-//$session_data=$this->session->userdata();
-//if($session_data['loginSession']==NULL){
-//    redirect(base_url('/'));
-//}
-//?>
+$session_data=$this->session->userdata();
+if($session_data['loginSession']==NULL){
+    redirect(base_url('/'));
+}
+?>
 
 
 <!DOCTYPE html>

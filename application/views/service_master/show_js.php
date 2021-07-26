@@ -1,12 +1,17 @@
+<?php
+$session_data = $this->session->userdata('loginSession');
+?>
 <script>
     var ServiceList = new Map();
     function getService() {
         $.ajax({
 
-            url: 'service',
+            url: '<?php echo base_url();?>service',
 
             type: 'GET',
-
+            headers: {
+                "Authorization": "<?php echo $session_data['token'];?>"
+            },
             dataType: 'json',
 
             success: function (response) {

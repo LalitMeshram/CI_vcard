@@ -3,8 +3,9 @@
 class LoginModel extends CI_Model {
 
     public function get_authenticate($data) {
-        $data = $query = $this->db->get_where('admin_master', array('userid' => $data['uname'], 'password' => $data['password']))->row_array();
-        return $data;
+      $this->db->where("(phone1='".$data['uname']."' OR email_id='".$data['uname']."')AND password='".$data['password']."'");
+        $result = $this->db->get('user_master')->row_array();
+        return $result;
     }
 
     public function send_mail($email) {

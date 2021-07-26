@@ -18,6 +18,8 @@ $route['role-master'] = 'admin/AdminController/role_master';
 //user mstre ui
 $route['user-master'] = 'admin/AdminController/user_master';
 $route['user-form'] = 'admin/AdminController/user_form';
+$route['userDetail/(:num)'] = 'admin/AdminController/user_detail/$1';
+//$route['userDetail'] = 'admin/AdminController/user_detail';
 
 //service mster ui
 $route['service-master'] = 'admin/AdminController/service_master';
@@ -31,6 +33,10 @@ $route['profile-master'] = 'admin/AdminController/profile_master';
 //login api
 $route['login_auth'] = 'LoginController/login_auth';
 $route['logout'] = 'LoginController/logout';
+
+//Jwt Token example
+$route['jwtlogin']='JwtToken/LoginToken';
+$route['getjwtlogin']='JwtToken/GetTokenData';
 
 //role api
 $route['role'] = 'RoleController/role';

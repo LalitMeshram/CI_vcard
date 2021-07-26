@@ -1,3 +1,6 @@
+<?php
+$session_data = $this->session->userdata('loginSession');
+?>
 <script>
 
     $('#addRoleForm').on('submit', function (e) {
@@ -9,10 +12,14 @@
         if (returnVal) {
             $.ajax({
 
-                url: 'role',
+                url: '<?php echo base_url();?>role',
 
                 type: 'POST',
-
+                
+                headers: {
+                "Authorization": "<?php echo $session_data['token'];?>"
+            },
+                
                 data: formdata,
 
                 cache: false,
@@ -31,7 +38,7 @@
 
                     } else {
 
-                        swal("Good job!", response.msg, "error");
+                        swal("Error", response.msg, "error");
 
                     }
 

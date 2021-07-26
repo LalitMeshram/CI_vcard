@@ -36,13 +36,36 @@ class UserMasterModel extends CI_Model {
                 . 'um.last_name,'
                 . 'um.phone1,'
                 . 'um.phone2,'
+                . 'um.profile_image,'
+                . 'um.address,'
+                . 'um.about_us,'
+                . 'um.total_amount,'
+                . 'um.paid_amount,'
+                . 'um.discount,'
+                . 'um.installation_date,'
+                . 'um.next_renewal_date,'
+                . 'um.renewal_amount,'
+                . 'um.term,'
+                . 'um.is_active,'
+                . 'um.remark,'
+                . 'um.discount_id,'
                 . 'um.designation,'
                 . 'um.whatsapp_number,'
                 . 'um.map_direction_url,'
                 . 'um.website_url,'
-                . 'um.email_id');
+                . 'um.email_id,'
+                . 'um.created_at,'
+                . 'cum.first_name as creator_fname,'
+                . 'cum.middle_name as creator_mname,'
+                . 'cum.last_name as creator_lname,'
+                . 'agent.first_name as agent_fname,'
+                . 'agent.middle_name as agent_mname,'
+                . 'agent.last_name as agent_lname'
+                );
 
         $this->db->join('role_master rm', 'um.role_id = rm.id');
+        $this->db->join('user_master cum', 'cum.id = um.created_by');
+        $this->db->join('user_master agent', 'agent.id = um.agent_id');
         if ($id != 0) {
             $result['data'] = $query = $this->db->get_where('user_master um', array('um.id' => $id))->result_array();
         } else {

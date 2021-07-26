@@ -2,6 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 require APPPATH . 'libraries/REST_Controller.php';
+require APPPATH . '/libraries/CreatorJwt.php';
 
 class LoginController extends REST_Controller {
 
@@ -9,27 +10,33 @@ class LoginController extends REST_Controller {
 
         parent::__construct();
         $this->load->model('LoginModel', 'login');
+        $this->objOfJwt = new CreatorJwt();
     }
 
     public function login_auth_post() {
         $response = [];
-
+        
         $data['uname'] = $this->post('uname');
         $data['password'] = $this->post('password');
 
         $result = $this->login->get_authenticate($data);
         if (!empty($result)) {
+            $tokenData['id']=$result['id'];
+            $tokenData['role_id']=$result['role_id'];
+            
+            $jwtToken = $this->objOfJwt->GenerateToken($tokenData);
 //          set session  
             $sessionData = array(
                 'username' => $result['first_name'] . ' ' . $result['middle_name'] . ' ' . $result['last_name'],
-                'userid' => $result['userid'],
+                'userid' => $result['id'],
+                'token' => $jwtToken,
                 'logged_in' => TRUE
             );
             $this->session->set_userdata('loginSession', $sessionData);
 
 //            send response
             $response['msg'] = 'user login successfully!';
-            $response['id'] = $result['id'];
+            $response['token'] = $jwtToken;
             $response['status'] = 200;
             $this->response($response, REST_Controller::HTTP_OK);
         } else {

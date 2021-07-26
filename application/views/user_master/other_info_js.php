@@ -3,7 +3,6 @@
     $('#addUser').click(function (e) {
         
         var serviceId = $('#service').val();
-        var serviceId = $('#service').val();
         var service=$("#service option:selected").html();
         var url = $('#url').val();
         var flag = $('#hiddenflag').val();

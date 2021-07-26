@@ -1,3 +1,6 @@
+<?php
+$session_data = $this->session->userdata('loginSession');
+?>
 <script>
 
     $('#addServiceForm').on('submit', function (e) {
@@ -9,10 +12,12 @@
         if (returnVal) {
             $.ajax({
 
-                url: 'service',
+                url: '<?php echo base_url(); ?>service',
 
                 type: 'POST',
-
+                headers: {
+                    "Authorization": "<?php echo $session_data['token']; ?>"
+                },
                 data: formdata,
 
                 cache: false,

@@ -41,45 +41,70 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <div class="table-responsive">
-                                <table id="roleTable" class="table table-bordered table-striped">
+                                <table id="userTable" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th>Id</th>
                                             <th>Role</th>
-                                            <th>Business Name</th>
-                                            <th>User Name</th>
-                                            <th>Email Id</th>
-                                            <th>Mobile No.</th>
+                                            <th style="width: 100%">User</th>
+                                            <th>Next Renewal</th>
                                             <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="roleList">
-                                        <tr>
+                                    <tbody id="userList">
+<!--                                        <tr>
                                             <td>1</td>
-                                            <td>master</td>
-                                            <td>Anvi SoftWeb</td>
-                                            <td>pradyumn</td>
-                                            <td>pra@gmail.com</td>
-                                            <td>9876543210</td>
+                                            <td>Master</td>
+                                            <td>
+
+                                                <div class="media align-items-center">
+
+
+                                                    <a class="avatar avatar-lg status-success" href="#">
+                                                        <img src="<?php echo base_url(); ?>resource/images/avatar-custom.png" alt="...">
+                                                    </a>
+
+                                                    <div class="media-body">
+                                                        <p>
+                                                            <a href="#"><strong class="h5">Lalit Meshram</strong></a>
+                                                            
+                                                        </p>
+                                                        <p><strong class="h6">Anvi Softweb Soultions</strong><small class="sidetitle">Director</small></p>
+                                                        <p><strong class="h6">Phone1:</strong> 8007015819 | <strong>Phone2:</strong> 8745963214</p>
+                                                        <p> <strong class="h6">Email:</strong> lalitrmeshram@gmail.com </p>
+                                                        <nav class="nav mt-2">
+                                                            <a class="nav-link" href="#"><i class="fa fa-facebook"></i></a>
+                                                            <a class="nav-link" href="#"><i class="fa fa-twitter"></i></a>
+                                                            <a class="nav-link" href="#"><i class="fa fa-github"></i></a>
+                                                            <a class="nav-link" href="#"><i class="fa fa-linkedin"></i></a>
+                                                        </nav>
+
+                                                    </div>
+                                            </td>
+                                            <td>14 jul 2021</td>
                                             <td>Active</td>
-                                            <td>Edit</td>
-                                        </tr>
+                                            <td>
+                                                <p>Lalit Meshram</p>
+                                                <p>14 july 2021</p>
+                                            </td>
+                                            <td>
+                                                <a href="providerDetail/1" title="Edit"><i class="mdi mdi-tooltip-edit" style="font-size: 20px;"></i></a>
 
 
+
+                                            </td>
+                                        </tr>-->
+                                        
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                        <tr>
                                             <th>Id</th>
                                             <th>Role</th>
-                                            <th>Business Name</th>
-                                            <th>User Name</th>
-                                            <th>Email Id</th>
-                                            <th>Mobile No.</th>
+                                            <th>User</th>
+                                            <th>Next Renewal</th>
                                             <th>Status</th>
                                             <th>Action</th>
-                                        </tr>
                                         </tr>
                                     </tfoot>
                                 </table>

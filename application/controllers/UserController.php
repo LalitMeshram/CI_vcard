@@ -49,6 +49,7 @@ class UserController extends REST_Controller {
         $response = [];
         $data['role_id'] = $this->post('role_id');
         $data['agent_id'] = $this->post('agent_id');
+        
         $data['business_name'] = $this->post('business_name');
         $data['designation'] = $this->post('designation');
         $data['first_name'] = $this->post('first_name');
@@ -93,13 +94,14 @@ class UserController extends REST_Controller {
                 $file_data['file_size'] = $_FILES['profile_image']['size'];
                 $data['profile_image'] = $this->upload_docs($file_data);
             }
+            $data['created_by'] = $this->post('created_by');
+            $data['modified_by'] = $this->post('created_by');
             
             $allData=array(
                 'userData'=>$data,
                 'serviceData'=>$service_data,
                 'bussData'=>$buss_data
             );
-            $data['created_by'] = $this->post('created_by');
             $result = $this->user->insert_user($allData);
 
 
@@ -116,7 +118,7 @@ class UserController extends REST_Controller {
                 $this->response($response, REST_Controller::HTTP_BAD_REQUEST);
             }
         } else {
-            $data['modified_by'] = $this->post('modified_by');
+            $data['modified_by'] = $this->post('created_by');
             $userData = $this->user->get_user($id);
             if (!empty($userData)) {
                 $data['id'] = $id;
