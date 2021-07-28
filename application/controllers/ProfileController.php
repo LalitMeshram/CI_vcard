@@ -29,6 +29,22 @@ class ProfileController extends REST_Controller {
             $this->response($response, REST_Controller::HTTP_NOT_FOUND);
         }
     }
+    public function asper_role_profile_get($id = 0) {
+        $response = [];
+        $received_Token = $this->input->request_headers();
+        $jwtData = $this->objOfJwt->DecodeToken($received_Token['Authorization']);
+        $data = $this->profile->get_profile_asper_role($id);
+        if (!empty($data)) {
+            $response['data'] = $data;
+            $response['msg'] = 'All Data Fetch successfully!';
+            $response['status'] = 200;
+            $this->response($response, REST_Controller::HTTP_OK);
+        } else {
+            $response['msg'] = 'Data not Found!';
+            $response['status'] = 404;
+            $this->response($response, REST_Controller::HTTP_NOT_FOUND);
+        }
+    }
 
     public function profile_post() {
         $response = [];

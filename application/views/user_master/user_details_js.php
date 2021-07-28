@@ -1,3 +1,6 @@
+<?php
+$session_data = $this->session->userdata('loginSession');
+?>
 <script>
  var userList = new Map();
    function getUserDetails(){
@@ -6,6 +9,10 @@
             url: '<?php echo base_url();?>user/'+'<?php echo $id;?>',
 
             type: 'GET',
+            
+            headers: {
+                "Authorization": "<?php echo $session_data['token']; ?>"
+            },
 
             dataType: 'json',
 

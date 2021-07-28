@@ -18,6 +18,7 @@ $route['role-master'] = 'admin/AdminController/role_master';
 //user mstre ui
 $route['user-master'] = 'admin/AdminController/user_master';
 $route['user-form'] = 'admin/AdminController/user_form';
+$route['update-form/(:num)'] = 'admin/AdminController/update_user_form/$1';
 $route['userDetail/(:num)'] = 'admin/AdminController/user_detail/$1';
 //$route['userDetail'] = 'admin/AdminController/user_detail';
 
@@ -53,6 +54,7 @@ $route['activity/(:num)'] = 'ActivityController/activity/$1';
 //activity api
 $route['profile'] = 'ProfileController/profile';
 $route['profile/(:num)'] = 'ProfileController/profile/$1';
+$route['profileasperRole/(:num)'] = 'ProfileController/asper_role_profile/$1';
 
 //user master api
 $route['user']='UserController/user';

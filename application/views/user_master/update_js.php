@@ -1,3 +1,6 @@
+<?php
+$session_data = $this->session->userdata('loginSession');
+?>
 <script>
 
     $('#updateUserForm').on('submit', function (e) {
@@ -8,9 +11,13 @@
 
         $.ajax({
 
-            url: 'user',
+            url: '<?php echo base_url();?>user',
 
             type: 'POST',
+            
+            headers: {
+                "Authorization": "<?php echo $session_data['token']; ?>"
+            },
 
             data: formdata,
 

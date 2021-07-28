@@ -81,7 +81,7 @@ class UserController extends REST_Controller {
 
 
         $data['is_active'] = ($this->post('is_active') == 'on' || $this->post('is_active') == 1) ? 1 : 0;
-        $id = $this->post('id');
+        $id = $this->post('userid');
 
         $service_data = $this->input->post('socialData');
         $service_data = json_decode($service_data);

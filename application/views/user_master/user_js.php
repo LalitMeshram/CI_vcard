@@ -1,12 +1,19 @@
+<?php
+$session_data = $this->session->userdata('loginSession');
+?>
 <script>
     var users = new Map();
     function getUserData() {
 
         $.ajax({
 
-            url: 'user',
+            url: '<?php echo base_url();?>user',
 
             type: 'GET',
+            
+            headers: {
+                "Authorization": "<?php echo $session_data['token']; ?>"
+            },
 
             dataType: 'json',
 

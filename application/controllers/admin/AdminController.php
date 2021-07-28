@@ -60,6 +60,19 @@ class AdminController extends CI_Controller {
         $this->load->view('user_master/user_js');
         $this->load->view('user_master/role_js');
     }
+    public function update_user_form($id) {
+        $data['id']=$id;
+        $this->load->view('header');
+        $this->load->view('side_bar');
+        $this->load->view('user_master/update_user_wizard');
+        $this->load->view('footer');
+        $this->load->view('user_master/new_js');
+        $this->load->view('user_master/service_buss_js');
+        $this->load->view('user_master/other_info_js');
+        $this->load->view('user_master/user_js');
+        $this->load->view('user_master/role_js');
+        $this->load->view('user_master/set_update_user_js',$data);
+    }
     public function service_master() {
         $this->load->view('header');
         $this->load->view('side_bar');

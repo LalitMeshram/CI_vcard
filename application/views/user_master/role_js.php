@@ -1,3 +1,6 @@
+<?php
+$session_data = $this->session->userdata('loginSession');
+?>
 <script>
     var roles = new Map();
     $("#profile_id").prop('disabled', true);
@@ -5,11 +8,16 @@
 
         $.ajax({
 
-            url: 'role',
+            url: '<?php echo base_url();?>role',
 
-            async:false,
             
             type: 'GET',
+            
+            headers: {
+                "Authorization": "<?php echo $session_data['token']; ?>"
+            },
+                    
+            async:false,
             
             dataType: 'json',
 
@@ -55,9 +63,14 @@
             if(id!=0){
             $.ajax({
 
-            url: 'profile/'+id,
+            url: '<?php echo base_url();?>profileasperRole/'+id,
 
             type: 'GET',
+            
+            headers: {
+                "Authorization": "<?php echo $session_data['token']; ?>"
+            },
+            
             async:false,
             dataType: 'json',
 

@@ -25,6 +25,21 @@ class ProfileModel extends CI_Model {
         }
         return $data;
     }
+    
+    public function get_profile_asper_role($id) {
+      $data=[]; 
+      $this->db->select('pm.id,'
+                . 'pm.role_id,'
+                . ' pm.title,'
+                . ' pm.is_active,'
+                . ' rm.role');
+        $this->db->join('role_master rm', 'pm.role_id = rm.id');
+
+        if ($id != 0) {
+            $data = $query = $this->db->get_where('profile_master pm', array('pm.role_id' => $id))->result();
+        } 
+        return $data;
+    }
 
     public function update_profile($id, $data) {
         $this->db->where('id', $id);
