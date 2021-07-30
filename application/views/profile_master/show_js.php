@@ -62,7 +62,7 @@ $session_data = $this->session->userdata('loginSession');
                             <td>` + roles.role + `</td>
                             <td>` + roles.title + `</td>
                             <td>` + status + `</td>
-                            <td> <a href="#" onclick="getUsers(` + roles.id + `)" title="Update Profile" ><i class="mdi mdi-tooltip-edit" style="font-size: 20px;"></i></a> </td>
+                            <td> <a href="#" onclick="getUsers(` + roles.id + `)" title="Update Profile" ><i class="mdi mdi-tooltip-edit" style="font-size: 20px;"></i></a>  <a href="#" onclick="getPermission(` + roles.id + `)" title="Permission List" ><i class="mdi mdi-tooltip-edit" style="font-size: 20px;"></i></a> </td>
                     </tr>
                     `;
         }
@@ -75,7 +75,7 @@ $session_data = $this->session->userdata('loginSession');
     function getUsers(id) {
         $.ajax({
 
-            url: '<?php echo base_url();?>profile/' + id,
+            url: '<?php echo base_url(); ?>profile/' + id,
 
             type: 'GET',
             headers: {
@@ -102,6 +102,12 @@ $session_data = $this->session->userdata('loginSession');
         });
     }
 
+    function getPermission(id) {
+
+        $('#myModal20').modal('toggle');
+
+    }
+
 
 
 
@@ -116,10 +122,10 @@ $session_data = $this->session->userdata('loginSession');
 
         $.ajax({
 
-            url: '<?php echo base_url();?>role',
+            url: '<?php echo base_url(); ?>role',
 
             type: 'GET',
-            
+
             headers: {
                 "Authorization": "<?php echo $session_data['token']; ?>"
             },

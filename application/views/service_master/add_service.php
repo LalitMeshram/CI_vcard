@@ -16,9 +16,19 @@
 
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label ><span class="error">*</span>Enter Service</label>
+                                    <!--<label ><span class="error">*</span>Enter Service</label>-->
+                                    <h5>Enter Service <span class="text-danger">*</span></h5>
                                     <input type="text" class="form-control" placeholder="service" id="title" name="title">
                                     <input type="hidden" class="form-control" id="id" name="id">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <h5>Checkbox <span class="text-danger">*</span></h5>
+                                    <div class="controls">
+                                        <input type="checkbox" id="checkbox_1" required value="single">
+                                        <label for="checkbox_1">Image</label>
+                                    </div>								
                                 </div>
                             </div>
                         </div>

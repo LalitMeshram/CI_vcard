@@ -27,6 +27,7 @@
                     <li><a class="box-btn-fullscreen" href="#"></a></li>
                 </ul>
             </div>
+        </div>
             <div class="box-body">
                 <div class="box-body wizard-content">
                     <form action="#" class="tab-wizard wizard-circle" id="addUserForm">
