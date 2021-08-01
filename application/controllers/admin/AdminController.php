@@ -105,6 +105,7 @@ class AdminController extends CI_Controller {
         $this->load->view('header');
         $this->load->view('side_bar');
         $this->load->view('profile_master/profile_master');
+        $this->load->view('profile_master/permissionList');
         $this->load->view('profile_master/add_profile');
         $this->load->view('footer');
         $this->load->view('profile_master/validation_js');

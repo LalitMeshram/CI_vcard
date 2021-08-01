@@ -34,6 +34,7 @@
 
                             <!--<div class="box-controls pull-right">-->
                             <!--<button id="row-count" class="btn btn-xs btn-primary">Row count</button>-->
+                            <!--<button type="button" class="btn btn-primary" id="addpermi" data-toggle="modal" data-target="#myModal20">Add permission</button>-->
                             <button type="button" class="btn btn-primary" id="addProfile">Add Profile</button>
                             <!--</div>-->
                         </div>

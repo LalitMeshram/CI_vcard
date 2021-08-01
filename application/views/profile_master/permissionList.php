@@ -8,7 +8,7 @@
             </div>
             <div class="modal-body">
 
-                <form class="form" id="addProfileForm" method="post">
+                <form class="form" id="addPermissionForm" method="post">
                     <div class="box-body">
                         <div class="row">
                             <table class="table table-striped table-sm" id="otherTable">
@@ -34,8 +34,43 @@
                                             <!--</div>-->
                                         </td>
 
-                                        <td><input type="checkbox" id="checkbox_2"></td>
-                                        <td><input type="checkbox" id="checkbox_3"></td>
+                                        <td>
+                                            <div class="controls">
+                                                <input type="checkbox" id="checkbox_2" required value="single">
+                                                <label for="checkbox_2"></label>
+                                            </div>								
+                                        </td>
+                                        <td>
+                                            <div class="controls">
+                                                <input type="checkbox" id="checkbox_3" required value="single">
+                                                <label for="checkbox_3"></label>
+                                            </div>								
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>abc</td>
+                                        <td>
+                                            <!--<div class="form-group">-->
+                                            <div class="controls">
+                                                <input type="checkbox" id="checkbox_4" required value="single">
+                                                <label for="checkbox_4"></label>
+                                            </div>								
+                                            <!--</div>-->
+                                        </td>
+
+                                        <td>
+                                            <div class="controls">
+                                                <input type="checkbox" id="checkbox_5" required value="single">
+                                                <label for="checkbox_5"></label>
+                                            </div>								
+                                        </td>
+                                        <td>
+                                            <div class="controls">
+                                                <input type="checkbox" id="checkbox_6" required value="single">
+                                                <label for="checkbox_6"></label>
+                                            </div>								
+                                        </td>
                                     </tr>
 
                                 </tbody>
