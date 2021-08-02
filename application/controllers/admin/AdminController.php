@@ -37,6 +37,7 @@ class AdminController extends CI_Controller {
         $this->load->view('header');
         $this->load->view('side_bar');
         $this->load->view('user_master/user_master');
+        $this->load->view('profile_master/permissionList');
 //        $this->load->view('user_master/add_user');
 //        $this->load->view('user_master/add_user_wizard');
         $this->load->view('footer');
