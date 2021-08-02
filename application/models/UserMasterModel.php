@@ -232,4 +232,9 @@ class UserMasterModel extends CI_Model {
      return $result;
     }
 
+    public function setUserPermission($data) {
+        $this->db->insert_batch('user_permission_master', $data);
+        return true;
+    }
+    
 }

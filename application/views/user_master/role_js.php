@@ -50,9 +50,9 @@ $session_data = $this->session->userdata('loginSession');
         var option = '<option value="0">Select</option>';
         for (let k of list.keys()) {
             let role = list.get(k);
-            if(role.id != 1 && role.is_active==1){
+//            if(role.id != 1 && role.is_active==1){
             option += `<option value='` + role.id + `'>` +(role.id+`-`+role.role) + `</option>`;
-            }
+//            }
         }
         $('#role_id').html(option);
 

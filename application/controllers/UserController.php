@@ -10,6 +10,7 @@ class UserController extends REST_Controller {
 
         parent::__construct();
         $this->load->model('UserMasterModel', 'user');
+        $this->load->model('ProfilePermissionModel', 'permission');
         $this->objOfJwt = new CreatorJwt();
     }
 
@@ -19,6 +20,7 @@ class UserController extends REST_Controller {
         $jwtData = $this->objOfJwt->DecodeToken($received_Token['Authorization']);
 
         $result = $this->user->get_user($id);
+//        print_r($result);exit;
         if ($result['status']) {
 
             for ($i = 0; $i < count($result['data']); $i++) {
@@ -52,6 +54,8 @@ class UserController extends REST_Controller {
         $response = [];
         $received_Token = $this->input->request_headers();
         $jwtData = $this->objOfJwt->DecodeToken($received_Token['Authorization']);
+
+        $profileId = $this->post('profile_id');
         $data['role_id'] = $this->post('role_id');
         $data['agent_id'] = $this->post('agent_id');
 
@@ -107,9 +111,22 @@ class UserController extends REST_Controller {
                 'serviceData' => $service_data,
                 'bussData' => $buss_data
             );
-            $result = $this->user->insert_user($allData);
-
-
+            $result = $this->user->insert_user($allData);//userid
+            $permissionSet = $this->permission->get_permission_asper_profile($profileId);
+            $userPermission;
+            $i=0;
+            foreach ($permissionSet as $permission) {
+                $userPermission[$i++]=array(
+                    "user_id"=>$result['userid'],
+                    "profile_master_id"=>$permission->profile_id,
+                    "activity_id"=>$permission->activity_id,
+                    "_create"=>$permission->_create,
+                    "_update"=>$permission->_update,
+                    "_delete"=>$permission->_delete,
+                );
+            }
+            //set user permission
+            $this->user->setUserPermission($userPermission);
 
             if ($result['status']) {
                 $response['msg'] = 'User created successfully!';
