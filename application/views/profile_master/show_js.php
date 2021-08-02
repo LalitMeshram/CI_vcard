@@ -57,14 +57,14 @@ $session_data = $this->session->userdata('loginSession');
             }
 
             tblData += `
-                    <tr>
-                            <td>` + roles.id + `</td>
-                            <td>` + roles.role + `</td>
-                            <td>` + roles.title + `</td>
-                            <td>` + status + `</td>
-                            <td> <a href="#" onclick="getUsers(` + roles.id + `)" title="Update Profile" ><i class="mdi mdi-tooltip-edit" style="font-size: 20px;"></i></a>  <a href="#" onclick="getPermission(` + roles.id + `)" title="Permission List" ><i class="mdi mdi-tooltip-edit" style="font-size: 20px;"></i></a> </td>
-                    </tr>
-                    `;
+            <tr>
+                    <td>` + roles.id + `</td>
+                    <td>` + roles.role + `</td>
+                    <td>` + roles.title + `</td>
+                    <td>` + status + `</td>
+                    <td> <a href="#" onclick="getUsers(` + roles.id + `)" title="Update Profile" ><i class="mdi mdi-tooltip-edit" style="font-size: 20px;"></i></a>&nbsp;&nbsp;  <a href="#" onclick="getPermission('` + roles.id + `')" title="Permission List" ><i class="mdi mdi-account-key" style="font-size: 20px;"></i></a> </td>
+            </tr>
+            `;
         }
 
         $('#profileList').html(tblData);
@@ -85,7 +85,7 @@ $session_data = $this->session->userdata('loginSession');
             dataType: 'json',
 
             success: function (response) {
-//                console.log(response);
+                //                console.log(response);
 
                 if (response.status == 200) {
                     $('#id').val(id);
@@ -103,8 +103,94 @@ $session_data = $this->session->userdata('loginSession');
     }
 
     function getPermission(id) {
+        $.ajax({
 
-        $('#myModal20').modal('toggle');
+            url: '<?php echo base_url(); ?>activity',
+            type: 'GET',
+            async:false,
+            headers: {
+                "Authorization": "<?php echo $session_data['token']; ?>"
+            },
+            dataType: 'json',
+            success: function (response) {
+
+                var tableData = '';
+                if (response.status == 200) {
+                    var data = response.data;
+                    for (var i = 0; i < data.length; i++) {
+                        tableData += `
+                            <tr>
+                                        <td>` + data[i].id + `</td>
+                                        <td>` + data[i].activity_title + `</td>
+                                        <td>
+                                            <!--<div class="form-group">-->
+                                            <div class="controls">
+                                                <input type="checkbox" id="createbox_` + data[i].id + `" required value="1">
+                                                <label for="createbox_` + data[i].id + `"></label>
+                                            </div>								
+                                            <!--</div>-->
+                                        </td>
+
+                                        <td>
+                                            <div class="controls">
+                                                <input type="checkbox" id="updatebox_` + data[i].id + `" required value="1">
+                                                <label for="updatebox_` + data[i].id + `"></label>
+                                            </div>								
+                                        </td>
+                                        <td>
+                                            <div class="controls">
+                                                <input type="checkbox" id="deletebox_` + data[i].id + `" required value="1">
+                                                <label for="deletebox_` + data[i].id + `"></label>
+                                            </div>								
+                                        </td>
+                                    </tr>
+                        `;
+                    }
+                    $('#permissionData').html(tableData);
+                    $('#profileId').val(id);
+                    $('#permissionModal').modal('toggle');
+
+                }
+
+            }
+
+        });
+
+//        -----------------------------------------------------------------
+        $.ajax({
+
+            url: '<?php echo base_url();?>profilePermission/'+id,
+
+            type: 'GET',
+            headers: {
+                "Authorization": "<?php echo $session_data['token']; ?>"
+            },
+            async:false,
+            dataType: 'json',
+
+            success: function (response) {
+
+
+                if (response.status == 200) {
+                    var data=response.data;
+                    
+                        for (var i = 0; i < data.length; i++) {
+                            if(data[i]._create==1){
+                                $('#createbox_'+data[i].activity_id).prop('checked', true);
+                            }
+                            if(data[i]._update==1){
+                                $('#updatebox_'+data[i].activity_id).prop('checked', true);
+                            }
+                            if(data[i]._delete==1){
+                                $('#deletebox_'+data[i].activity_id).prop('checked', true);
+                            }
+                        }
+                }
+
+            }
+
+        });
+
 
     }
 

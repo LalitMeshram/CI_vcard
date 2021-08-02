@@ -24,7 +24,15 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label ><span class="error">*</span>Select Category</label>
-                                    <input type="text" class="form-control" placeholder="category" id="category" name="category">
+                                    
+                                    <select class="form-control" id="category" name="category">
+                                    <option>Dashboard</option>
+                                    <option>user</option>
+                                    <option>Role</option>
+                                    <option>Service</option>
+                                    <option>Profile</option>
+                                    <option>Activity</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -39,13 +47,7 @@
                                     <input type="text" class="form-control" placeholder="sequence" id="sequence" name="sequence">
                                 </div>
                             </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label class="control-label">Created At</label>
-
-                                    <input type="date" class="form-control" name="created_at" id="created_at" />
-                                </div>
-                            </div>
+                            
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label >Status</label>

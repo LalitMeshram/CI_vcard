@@ -55,6 +55,11 @@ $route['activity/(:num)'] = 'ActivityController/activity/$1';
 $route['profile'] = 'ProfileController/profile';
 $route['profile/(:num)'] = 'ProfileController/profile/$1';
 $route['profileasperRole/(:num)'] = 'ProfileController/asper_role_profile/$1';
+//profile permissions
+$route['profilePermission']='ProfilePermissionController/permission';
+$route['profilePermission/(:num)']='ProfilePermissionController/permission/$1';
+
+
 
 //user master api
 $route['user']='UserController/user';

@@ -30,7 +30,7 @@ $session_data = $this->session->userdata('loginSession');
 
                 success: function (response) {
                     if (response.status == 200) {
-                        $('#myModal4').modal('toggle');
+                        
                         swal("Good job!", response.msg, "success");
                         location.reload();
 

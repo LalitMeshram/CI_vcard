@@ -1,4 +1,4 @@
-<div class="modal fade bs-example-modal-lg" id="myModal20" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+<div class="modal fade bs-example-modal-lg" id="permissionModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <!--form start-->
@@ -8,10 +8,10 @@
             </div>
             <div class="modal-body">
 
-                <form class="form" id="addPermissionForm" method="post">
                     <div class="box-body">
                         <div class="row">
-                            <table class="table table-striped table-sm" id="otherTable">
+                            <input type="hidden" id="profileId" name="tableData">
+                            <table class="table table-striped table-sm" id="permissionTable">
                                 <thead class="thead-dark">
                                     <tr>
                                         <th scope="col">Id</th>
@@ -21,57 +21,8 @@
                                         <th scope="col">Delete</th>
                                     </tr>
                                 </thead>
-                                <tbody id="otherData">   
-                                    <tr>
-                                        <td>1</td>
-                                        <td>xyz</td>
-                                        <td>
-                                            <!--<div class="form-group">-->
-                                            <div class="controls">
-                                                <input type="checkbox" id="checkbox_1" required value="single">
-                                                <label for="checkbox_1"></label>
-                                            </div>								
-                                            <!--</div>-->
-                                        </td>
-
-                                        <td>
-                                            <div class="controls">
-                                                <input type="checkbox" id="checkbox_2" required value="single">
-                                                <label for="checkbox_2"></label>
-                                            </div>								
-                                        </td>
-                                        <td>
-                                            <div class="controls">
-                                                <input type="checkbox" id="checkbox_3" required value="single">
-                                                <label for="checkbox_3"></label>
-                                            </div>								
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>abc</td>
-                                        <td>
-                                            <!--<div class="form-group">-->
-                                            <div class="controls">
-                                                <input type="checkbox" id="checkbox_4" required value="single">
-                                                <label for="checkbox_4"></label>
-                                            </div>								
-                                            <!--</div>-->
-                                        </td>
-
-                                        <td>
-                                            <div class="controls">
-                                                <input type="checkbox" id="checkbox_5" required value="single">
-                                                <label for="checkbox_5"></label>
-                                            </div>								
-                                        </td>
-                                        <td>
-                                            <div class="controls">
-                                                <input type="checkbox" id="checkbox_6" required value="single">
-                                                <label for="checkbox_6"></label>
-                                            </div>								
-                                        </td>
-                                    </tr>
+                                <tbody id="permissionData">   
+                                    
 
                                 </tbody>
                             </table>
@@ -80,11 +31,10 @@
                     <!-- /.box-body -->
                     <div class="modal-footer text-right">
                         <button type="button" class="btn btn-danger waves-effect text-left" data-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-primary btn-outline">
+                        <button type="button" class="btn btn-primary btn-outline" id="permissionBtn">
                             <i class="ti-save-alt"></i> Save
                         </button>
                     </div>
-                </form>
             </div>
         </div>
         <!--form end-->

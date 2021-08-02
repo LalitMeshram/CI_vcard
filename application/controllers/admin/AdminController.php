@@ -112,5 +112,6 @@ class AdminController extends CI_Controller {
         $this->load->view('profile_master/show_js');
         $this->load->view('profile_master/new_js');
         $this->load->view('profile_master/update_js');
+        $this->load->view('profile_master/set_permission_js');
     }
 }

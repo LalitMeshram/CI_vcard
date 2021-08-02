@@ -63,7 +63,9 @@ $session_data = $this->session->userdata('loginSession');
                             <td>` + active.url + `</td>
                             <td>` + status + `</td>
                             <td>` + active.created_at + `</td>
-                            <td> <a href="#" onclick="getActive(` + active.id + `)" title="Update Activity" ><i class="mdi mdi-tooltip-edit" style="font-size: 20px;"></i></a> </td>
+                            <td> <a href="#" onclick="getActive(` + active.id + `)" title="Update Activity" ><i class="mdi mdi-tooltip-edit" style="font-size: 20px;"></i></a>&nbsp;&nbsp;
+                            <a href="#" onclick="deleteActive(` + active.id + `)" title="Delete Activity" ><i class="mdi mdi-delete-circle text-danger" style="font-size: 20px;"></i></a>
+                             </td>
                     </tr>
                     `;
         }
@@ -106,7 +108,33 @@ $session_data = $this->session->userdata('loginSession');
         });
     }
 
+function deleteActive(id){
+    $.ajax({
 
+url: '<?php echo base_url();?>activity/' + id,
+
+type: 'DELETE',
+headers: {
+    "Authorization": "<?php echo $session_data['token'];?>"
+},
+
+dataType: 'json',
+
+success: function (response) {
+
+
+    if (response.status == 200) {
+        swal("Good job!", response.msg, "success");
+        $('#myModal4').modal('toggle');
+
+    }else{
+        swal("Good job!", response.msg, "success");
+    }
+
+}
+
+});
+}
 
 
     $('#addActivity').click(function () {

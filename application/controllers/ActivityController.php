@@ -38,9 +38,11 @@ class ActivityController extends REST_Controller {
         $data['category'] = $this->post('category');
         $data['url'] = $this->post('url');
         $data['is_active'] = ($this->post('is_active') == 'on' || $this->post('is_active') == 1) ? 1 : 0;
-
+        $format = "%d-%m-%y %h:%i %a";
+        
         $id = $this->post('id');
         if (empty($id)) {
+            $data['created_at']=@mdate($format);
             $activity_id = $this->activity->insert_activity($data);
 
             if (!empty($activity_id)) {
@@ -56,6 +58,7 @@ class ActivityController extends REST_Controller {
             }
         } else {
             if (!empty($this->activity->get_activity($id))) {
+                
                 $status = $this->activity->update_activity($id, $data);
                 if ($status) {
                     $response['msg'] = 'Activity updated successfully!';
