@@ -11,6 +11,7 @@ class UserController extends REST_Controller {
         parent::__construct();
         $this->load->model('UserMasterModel', 'user');
         $this->load->model('ProfilePermissionModel', 'permission');
+        $this->load->model('UserPermissionModel', 'userPermission');
         $this->objOfJwt = new CreatorJwt();
     }
 
@@ -46,7 +47,7 @@ class UserController extends REST_Controller {
         } else {
             $response['msg'] = 'Data not Found!';
             $response['status'] = 404;
-            $this->response($response, REST_Controller::HTTP_NOT_FOUND);
+            $this->response($response, REST_Controller::HTTP_OK);
         }
     }
 
@@ -57,6 +58,7 @@ class UserController extends REST_Controller {
 
         $profileId = $this->post('profile_id');
         $data['role_id'] = $this->post('role_id');
+        $data['profile_id'] = $profileId;
         $data['agent_id'] = $this->post('agent_id');
 
         $data['business_name'] = $this->post('business_name');
@@ -126,7 +128,7 @@ class UserController extends REST_Controller {
                 );
             }
             //set user permission
-            $this->user->setUserPermission($userPermission);
+            $this->userPermission->setUserPermission($userPermission);
 
             if ($result['status']) {
                 $response['msg'] = 'User created successfully!';

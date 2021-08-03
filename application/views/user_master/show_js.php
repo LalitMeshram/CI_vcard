@@ -139,6 +139,8 @@ $session_data = $this->session->userdata('loginSession');
                                             <div class="controls">
                                                 <input type="checkbox" id="createbox_` + data[i].id + `" required value="1">
                                                 <label for="createbox_` + data[i].id + `"></label>
+                                                    <input type="hidden" id="profileid_`+data[i].id+`">
+                                                    <input type="hidden" id="userid_`+data[i].id+`">
                                             </div>								
                                             <!--</div>-->
                                         </td>
@@ -159,7 +161,7 @@ $session_data = $this->session->userdata('loginSession');
                         `;
                     }
                     $('#permissionData').html(tableData);
-                    $('#profileId').val(id);
+                    $('#userId').val(id);
                     $('#permissionModal').modal('toggle');
 
                 }
@@ -171,7 +173,7 @@ $session_data = $this->session->userdata('loginSession');
 //        -----------------------------------------------------------------
         $.ajax({
 
-            url: '<?php echo base_url();?>profilePermission/'+id,
+            url: '<?php echo base_url();?>userPermission/'+id,
 
             type: 'GET',
             headers: {
@@ -185,8 +187,11 @@ $session_data = $this->session->userdata('loginSession');
 
                 if (response.status == 200) {
                     var data=response.data;
-                    
                         for (var i = 0; i < data.length; i++) {
+                            
+                            $('#profileid_'+data[i].activity_id).val(data[i].profile_master_id);
+                            $('#userid_'+data[i].activity_id).val(data[i].user_id);
+                            
                             if(data[i]._create==1){
                                 $('#createbox_'+data[i].activity_id).prop('checked', true);
                             }
@@ -196,6 +201,8 @@ $session_data = $this->session->userdata('loginSession');
                             if(data[i]._delete==1){
                                 $('#deletebox_'+data[i].activity_id).prop('checked', true);
                             }
+                            
+                            
                         }
                 }
 

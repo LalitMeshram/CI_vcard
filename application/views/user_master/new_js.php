@@ -104,7 +104,8 @@ $session_data = $this->session->userdata('loginSession');
                         if (response.status == 200) {
                             $('#myModal2').modal('toggle');
                             swal("Good job!", response.msg, "success");
-                            location.reload();
+
+                            window.location.replace("<?php echo base_url();?>user-master");
 
                         } else {
 

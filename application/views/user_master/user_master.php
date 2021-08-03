@@ -62,7 +62,7 @@
 
 
                                                     <a class="avatar avatar-lg status-success" href="#">
-                                                        <img src="<?php echo base_url(); ?>resource/images/avatar-custom.png" alt="...">
+                                                        <img src="<?php// echo base_url(); ?>resource/images/avatar-custom.png" alt="...">
                                                     </a>
 
                                                     <div class="media-body">

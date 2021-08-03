@@ -7,7 +7,8 @@ $session_data = $this->session->userdata('loginSession');
 
         var data = [];
         var activity_id;
-        var profile_id = $('#profileId').val();
+        var profile_id;
+        var user_id;
         var _create;
         var _update;
         var _delete;
@@ -15,15 +16,19 @@ $session_data = $this->session->userdata('loginSession');
         $('#permissionTable tbody>tr').each(function (index, tr) {
             var tds = $(tr).find('td');
             activity_id = tds[0].textContent;
+            
 //            _create = tds[2].textContent;
 //            _update = tds[3].textContent;
 //            _delete = tds[4].textContent;
             _create = ($('#createbox_' + activity_id).prop("checked") == true) ? 1 : 0;
             _update = ($('#updatebox_' + activity_id).prop("checked") == true) ? 1 : 0;
             _delete = ($('#deletebox_' + activity_id).prop("checked") == true) ? 1 : 0;
-
+            
+            profile_id=$('#profileid_'+activity_id).val();
+            user_id=$('#userid_'+activity_id).val();
             data[i++] = {
-                profile_id: profile_id,
+                profile_master_id: profile_id,
+                user_id: user_id,
                 activity_id: activity_id,
                 _create: _create,
                 _update: _update,
@@ -36,13 +41,14 @@ $session_data = $this->session->userdata('loginSession');
     $('#permissionBtn').click(function () {
         var permission = getPermissionData();
         var permissionString = JSON.stringify(permission);
-        var profileId = $('#profileId').val();
+        var userId=$('#userId').val();
         var formdata = new FormData();
-        formdata.append('profileId',profileId)
-        formdata.append('Data',permissionString)
+        formdata.append('userId',userId);
+        formdata.append('Data',permissionString);
+        
         $.ajax({
 
-            url: '<?php echo base_url(); ?>profilePermission',
+            url: '<?php echo base_url(); ?>userPermission',
 
             type: 'POST',
             headers: {

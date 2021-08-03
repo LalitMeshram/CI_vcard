@@ -30,6 +30,7 @@ class UserMasterModel extends CI_Model {
                 'um.id,'
                 . 'um.business_name,'
                 . 'um.role_id,'
+                . 'um.profile_id,'
                 . 'rm.role,'
                 . 'um.first_name,'
                 . 'um.middle_name,'
@@ -232,9 +233,6 @@ class UserMasterModel extends CI_Model {
      return $result;
     }
 
-    public function setUserPermission($data) {
-        $this->db->insert_batch('user_permission_master', $data);
-        return true;
-    }
+    
     
 }

@@ -10,7 +10,7 @@
 
                     <div class="box-body">
                         <div class="row">
-                            <input type="hidden" id="profileId" name="tableData">
+                            <input type="hidden" id="userId" name="userId">
                             <table class="table table-striped table-sm" id="permissionTable">
                                 <thead class="thead-dark">
                                     <tr>

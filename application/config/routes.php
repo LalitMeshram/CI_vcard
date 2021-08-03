@@ -64,6 +64,8 @@ $route['profilePermission/(:num)']='ProfilePermissionController/permission/$1';
 //user master api
 $route['user']='UserController/user';
 $route['user/(:num)']='UserController/user/$1';
+$route['userPermission/(:num)']='UserPermissionController/userPermission/$1';
+$route['userPermission']='UserPermissionController/userPermission';
 
 
 

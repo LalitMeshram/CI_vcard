@@ -3,7 +3,6 @@ $session_data = $this->session->userdata('loginSession');
 ?>
 <script>
     var roles = new Map();
-    $("#profile_id").prop('disabled', true);
     function getRoleData() {
 
         $.ajax({
@@ -86,7 +85,6 @@ $session_data = $this->session->userdata('loginSession');
                              option += `<option value='` + profile.id + `'>` +(profile.id+`-`+profile.title) + `</option>`
                         }
                         $('#profile_id').html(option);
-                        $("#profile_id").prop('disabled', false);
 
                     }
 
