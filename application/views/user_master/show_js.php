@@ -134,6 +134,12 @@ $session_data = $this->session->userdata('loginSession');
                             <tr>
                                         <td>` + data[i].id + `</td>
                                         <td>` + data[i].activity_title + `</td>
+                                            <td>
+                                            <div class="controls">
+                                                <input type="checkbox" id="viewbox_` + data[i].id + `" required value="1">
+                                                <label for="viewbox_` + data[i].id + `"></label>
+                                            </div>								
+                                        </td>
                                         <td>
                                             <!--<div class="form-group">-->
                                             <div class="controls">
@@ -155,6 +161,12 @@ $session_data = $this->session->userdata('loginSession');
                                             <div class="controls">
                                                 <input type="checkbox" id="deletebox_` + data[i].id + `" required value="1">
                                                 <label for="deletebox_` + data[i].id + `"></label>
+                                            </div>								
+                                        </td>
+                                        <td>
+                                            <div class="controls">
+                                                <input type="checkbox" id="permissionbox_` + data[i].id + `" required value="1">
+                                                <label for="permissionbox_` + data[i].id + `"></label>
                                             </div>								
                                         </td>
                                     </tr>

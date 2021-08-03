@@ -54,9 +54,11 @@ class UserPermissionController extends REST_Controller {
                     "user_id"=>$userId,
                     "profile_master_id"=>$userDetails['data'][0]['profile_id'],
                     "activity_id"=>$permission->activity_id,
+                    "_view"=>$permission->_view,
                     "_create"=>$permission->_create,
                     "_update"=>$permission->_update,
                     "_delete"=>$permission->_delete,
+                    "permissionBtn"=>$permission->permissionBtn,
                 );
             }
             
