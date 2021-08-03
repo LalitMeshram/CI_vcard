@@ -8,9 +8,11 @@ $session_data = $this->session->userdata('loginSession');
         var data = [];
         var activity_id;
         var profile_id = $('#profileId').val();
+        var _view;
         var _create;
         var _update;
         var _delete;
+        var permissionBtn;
         var i = 0;
         $('#permissionTable tbody>tr').each(function (index, tr) {
             var tds = $(tr).find('td');
@@ -18,16 +20,20 @@ $session_data = $this->session->userdata('loginSession');
 //            _create = tds[2].textContent;
 //            _update = tds[3].textContent;
 //            _delete = tds[4].textContent;
+            _view = ($('#viewbox_' + activity_id).prop("checked") == true) ? 1 : 0;
             _create = ($('#createbox_' + activity_id).prop("checked") == true) ? 1 : 0;
             _update = ($('#updatebox_' + activity_id).prop("checked") == true) ? 1 : 0;
             _delete = ($('#deletebox_' + activity_id).prop("checked") == true) ? 1 : 0;
+            permissionBtn = ($('#permissionbox_' + activity_id).prop("checked") == true) ? 1 : 0;
 
             data[i++] = {
                 profile_id: profile_id,
                 activity_id: activity_id,
+                _view: _view,
                 _create: _create,
                 _update: _update,
-                _delete: _delete
+                _delete: _delete,
+                permissionBtn: permissionBtn
             }
         });
         return data;

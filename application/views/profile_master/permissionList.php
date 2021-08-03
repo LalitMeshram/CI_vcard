@@ -16,9 +16,11 @@
                                     <tr>
                                         <th scope="col">Id</th>
                                         <th scope="col">Activity</th>
+                                        <th scope="col">View</th>
                                         <th scope="col">Create</th>
                                         <th scope="col">Update</th>
                                         <th scope="col">Delete</th>
+                                        <th scope="col">PermissionBtn</th>
                                     </tr>
                                 </thead>
                                 <tbody id="permissionData">   

@@ -17,9 +17,11 @@ class ProfilePermissionModel extends CI_Model {
                 . 'ppm.profile_id,'
                 . ' ppm.activity_id,'
                 . ' am.activity_title,'
+                . ' ppm._view,'
                 . ' ppm._create,'
                 . ' ppm._update,'
-                . ' ppm._delete'
+                . ' ppm._delete,'
+                . ' ppm.permissionBtn'
         );
 //        $this->db->join('profile_master pm', 'pm.id = ppm.profile_id');
         $this->db->join('activity_master am', 'am.id = ppm.activity_id');

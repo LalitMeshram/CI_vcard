@@ -122,6 +122,12 @@ $session_data = $this->session->userdata('loginSession');
                             <tr>
                                         <td>` + data[i].id + `</td>
                                         <td>` + data[i].activity_title + `</td>
+                                            <td>
+                                            <div class="controls">
+                                                <input type="checkbox" id="viewbox_` + data[i].id + `" required value="1">
+                                                <label for="viewbox_` + data[i].id + `"></label>
+                                            </div>								
+                                        </td>
                                         <td>
                                             <!--<div class="form-group">-->
                                             <div class="controls">
@@ -141,6 +147,12 @@ $session_data = $this->session->userdata('loginSession');
                                             <div class="controls">
                                                 <input type="checkbox" id="deletebox_` + data[i].id + `" required value="1">
                                                 <label for="deletebox_` + data[i].id + `"></label>
+                                            </div>								
+                                        </td>
+                                        <td>
+                                            <div class="controls">
+                                                <input type="checkbox" id="permissionbox_` + data[i].id + `" required value="1">
+                                                <label for="permissionbox_` + data[i].id + `"></label>
                                             </div>								
                                         </td>
                                     </tr>
@@ -175,6 +187,9 @@ $session_data = $this->session->userdata('loginSession');
                     var data=response.data;
                     
                         for (var i = 0; i < data.length; i++) {
+                            if(data[i]._view==1){
+                                $('#viewbox_'+data[i].activity_id).prop('checked', true);
+                            }
                             if(data[i]._create==1){
                                 $('#createbox_'+data[i].activity_id).prop('checked', true);
                             }
@@ -183,6 +198,9 @@ $session_data = $this->session->userdata('loginSession');
                             }
                             if(data[i]._delete==1){
                                 $('#deletebox_'+data[i].activity_id).prop('checked', true);
+                            }
+                            if(data[i].permissionBtn==1){
+                                $('#permissionbox_'+data[i].activity_id).prop('checked', true);
                             }
                         }
                 }
