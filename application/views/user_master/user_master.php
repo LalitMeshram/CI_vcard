@@ -40,6 +40,25 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group row">
+                                        <div class="col-sm-3 px-0">
+                                            <select class="form-control" id="cityorhighway" name="cityorhighway">
+                                                <option>Select</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-4 mx-0 px-0">
+                                            <input type="radio" name="group"  id="gr1" value="highway"/>
+                                            <label for="gr1" class="">Highway</label>
+                                            <input type="radio" name="group"  id="gr2" value="city"/>
+                                            <label for="gr2" class="">City</label>
+                                            <button type="button" class="btn btn-outline btn-rounded btn-success btn-sm mb-5" id="searchButton"><i class="fa fa-search" aria-hidden="true"></i>Search</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
                             <div class="table-responsive">
                                 <table id="userTable" class="table table-bordered table-striped">
                                     <thead>
@@ -62,7 +81,7 @@
 
 
                                                     <a class="avatar avatar-lg status-success" href="#">
-                                                        <img src="<?php// echo base_url(); ?>resource/images/avatar-custom.png" alt="...">
+                                                        <img src="<?php // echo base_url();  ?>resource/images/avatar-custom.png" alt="...">
                                                     </a>
 
                                                     <div class="media-body">
@@ -95,7 +114,7 @@
 
                                             </td>
                                         </tr>-->
-                                        
+
                                     </tbody>
                                     <tfoot>
                                         <tr>

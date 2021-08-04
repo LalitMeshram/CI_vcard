@@ -1,0 +1,1 @@
+<script src="<?php echo base_url();?>resource/js/user/user_details.js"></script>
