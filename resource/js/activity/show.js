@@ -64,7 +64,7 @@ var token = localStorage.getItem('token');
                             <td>` + status + `</td>
                             <td>` + active.created_at + `</td>
                             <td> <a href="#" onclick="getActive(` + active.id + `)" title="Update Activity" ><i class="mdi mdi-tooltip-edit" style="font-size: 20px;"></i></a>&nbsp;&nbsp;
-                            <a href="#" onclick="deleteActive(` + active.id + `)" title="Delete Activity" ><i class="mdi mdi-delete-circle text-danger" style="font-size: 20px;"></i></a>
+                          <!--a href="#" onclick="deleteActive(` + active.id + `)" title="Delete Activity" ><i class="mdi mdi-delete-circle text-danger" style="font-size: 20px;"></i></a -->
                              </td>
                     </tr>
                     `;
@@ -125,10 +125,10 @@ success: function (response) {
 
     if (response.status == 200) {
         swal("Good job!", response.msg, "success");
-        $('#myModal4').modal('toggle');
+        location.reload();
 
     }else{
-        swal("Good job!", response.msg, "success");
+        swal("Good job!", response.msg, "error");
     }
 
 }
