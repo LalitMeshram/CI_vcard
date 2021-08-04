@@ -25,6 +25,7 @@ $session_data = $this->session->userdata('loginSession');
             _view = ($('#viewbox_' + activity_id).prop("checked") == true) ? 1 : 0;
             _create = ($('#createbox_' + activity_id).prop("checked") == true) ? 1 : 0;
             _update = ($('#updatebox_' + activity_id).prop("checked") == true) ? 1 : 0;
+            _delete = ($('#deletebox_' + activity_id).prop("checked") == true) ? 1 : 0;
             permissionBtn = ($('#permissionbox_' + activity_id).prop("checked") == true) ? 1 : 0;
             
             profile_id=$('#profileid_'+activity_id).val();

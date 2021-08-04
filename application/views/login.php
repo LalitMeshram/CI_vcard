@@ -147,7 +147,11 @@ if(isset($session_data['loginSession'])){
                 success: function (response) {
                     if (response.status == 200) {
                         swal("Good job!", response.msg, "success");
-//                    location.reload(); 
+                        
+                        localStorage.setItem("userid", response.userid);
+                        localStorage.setItem("url", response.url);
+                        localStorage.setItem("token", response.token);
+                        
                      window.location.replace("dashboard");
                     } else if(response.status == 400){
 

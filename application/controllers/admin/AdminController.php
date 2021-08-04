@@ -17,6 +17,7 @@ class AdminController extends CI_Controller {
         $this->load->view('dashboard/dashboard');
         $this->load->view('footer');
         $this->load->view('dashboard/dashboard_js');
+        $this->load->view('end');
     }
 
     public function role_master() {
@@ -24,12 +25,9 @@ class AdminController extends CI_Controller {
         $this->load->view('side_bar');
         $this->load->view('role_master/role_master');
         $this->load->view('role_master/add_role');
-//        $this->load->view('role_master/update_role');
         $this->load->view('footer');
-        $this->load->view('role_master/validation_js');
-        $this->load->view('role_master/show_js');
-        $this->load->view('role_master/new_js');
-        $this->load->view('role_master/update_js');
+        $this->load->view('role_master/role_js');
+        $this->load->view('end');
 
     }
 
@@ -44,6 +42,7 @@ class AdminController extends CI_Controller {
 //        $this->load->view('user_master/validation_js');
         $this->load->view('user_master/show_js');
         $this->load->view('user_master/set_permission_js');
+        $this->load->view('end');
     }
     public function user_detail($id) {
         $data['id']=$id;
@@ -52,6 +51,7 @@ class AdminController extends CI_Controller {
         $this->load->view('user_master/user_details');
         $this->load->view('footer');
         $this->load->view('user_master/user_details_js',$data);
+        $this->load->view('end');
     }
     public function user_form() {
         $this->load->view('header');
@@ -64,7 +64,7 @@ class AdminController extends CI_Controller {
         $this->load->view('user_master/other_info_js');
         $this->load->view('user_master/user_js');
         $this->load->view('user_master/role_js');
-        
+        $this->load->view('end');
     }
     public function update_user_form($id) {
         $data['id']=$id;
@@ -79,6 +79,7 @@ class AdminController extends CI_Controller {
         $this->load->view('user_master/role_js');
         $this->load->view('user_master/profile_js');
         $this->load->view('user_master/set_update_user_js',$data);
+        $this->load->view('end');
     }
     public function service_master() {
         $this->load->view('header');
@@ -90,6 +91,7 @@ class AdminController extends CI_Controller {
         $this->load->view('service_master/show_js');
         $this->load->view('service_master/new_js');
         $this->load->view('service_master/update_js');
+        $this->load->view('end');
     }
     
 
@@ -103,6 +105,7 @@ class AdminController extends CI_Controller {
         $this->load->view('activity_master/show_js');
         $this->load->view('activity_master/new_js');
         $this->load->view('activity_master/update_js');
+        $this->load->view('end');
     }
 
     public function profile_master() {
@@ -117,5 +120,6 @@ class AdminController extends CI_Controller {
         $this->load->view('profile_master/new_js');
         $this->load->view('profile_master/update_js');
         $this->load->view('profile_master/set_permission_js');
+        $this->load->view('end');
     }
 }

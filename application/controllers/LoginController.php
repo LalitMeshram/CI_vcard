@@ -36,6 +36,8 @@ class LoginController extends REST_Controller {
 
 //            send response
             $response['msg'] = 'user login successfully!';
+            $response['userid']=$result['id'];
+            $response['url']= base_url();
             $response['token'] = $jwtToken;
             $response['status'] = 200;
             $this->response($response, REST_Controller::HTTP_OK);
