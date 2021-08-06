@@ -37,7 +37,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group text-center">
-                                        <img src="<?php echo base_url('/admin_assets/img/doc_pre.png'); ?>" alt="" id="otherdpre"  width="100px" height="100px"/>
+                                        <img src="<?php echo base_url('resource/images/avatar-custom.png'); ?>" alt="" id="otherdpre"  width="100px" height="100px"/>
                                         <p><label for="profile_image" style="cursor: pointer;" class="h6"><u>Upload...</u></label></p>
                                         <input type="file" class="form-control" name="profile_image" id="profile_image" accept="image/*"  onchange="loadFile(event, 'otherdpre')" />
                                         <input type="hidden" id="userid" name="userid">

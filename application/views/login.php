@@ -151,7 +151,8 @@ if(isset($session_data['loginSession'])){
                         localStorage.setItem("userid", response.userid);
                         localStorage.setItem("url", response.url);
                         localStorage.setItem("token", response.token);
-                        
+                        localStorage.setItem("access", JSON.stringify(response.access));
+//                       console.log(response.access); 
                      window.location.replace("dashboard");
                     } else if(response.status == 400){
 

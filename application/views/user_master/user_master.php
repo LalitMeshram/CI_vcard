@@ -129,10 +129,7 @@
                                 </table>
                             </div>
                         </div>
-                        <!-- /.box-body 
-                    </div>
-                        <!-- /.box -->
-
+                       
 
                         <!-- /.box -->          
                     </div>

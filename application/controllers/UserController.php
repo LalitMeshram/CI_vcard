@@ -25,6 +25,7 @@ class UserController extends REST_Controller {
         if ($result['status']) {
 
             for ($i = 0; $i < count($result['data']); $i++) {
+//                echo $result['data'][$i]['id'];exit;
                 $s_details = $this->user->getServiceDetails($result['data'][$i]['id']);
                 if ($s_details['status']) {
                     $temp = array('service' => $s_details['data']);
@@ -128,6 +129,7 @@ class UserController extends REST_Controller {
                 );
             }
             //set user permission
+//            print_r($userPermission);exit;
             $this->userPermission->setUserPermission($userPermission);
 
             if ($result['status']) {

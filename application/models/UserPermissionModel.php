@@ -13,8 +13,9 @@ class UserPermissionModel extends CI_Model {
     
     public function getUserPermission($userId) {
         $data;
+        
         if ($userId != 0) {
-            $data = $query = $this->db->get_where('user_permission_master', array('user_id' => $userId))->result_array();
+            $data = $query = $this->db->get_where('user_permission_master upm', array('upm.user_id' => $userId))->result_array();
         } else {
             $data =array();
         }
@@ -30,5 +31,34 @@ class UserPermissionModel extends CI_Model {
         $this->db->where('user_id', $userId);
        return $this->db->delete('user_permission_master');
     }
+    
+   public function getUserPermissionforLogin($userId) {
+        $data;
+        
+        $this->db->select(
+                'upm.activity_id,'
+                . 'am.activity_title,'
+                .'am.category,'
+                .'am.url,'
+                .'am.is_active as activityisActive,'
+                .'upm.profile_master_id,'
+                .'upm.user_id,'
+                .'upm._view,'
+                .'upm._create,'
+                .'upm._update,'
+                .'upm._delete,'
+                .'upm.permissionBtn,'
+                .'upm.is_active as userisActive'
+                );
+        $this->db->join('activity_master am', 'am.id = upm.activity_id');
+        
+        if ($userId != 0) {
+            $data = $query = $this->db->get_where('user_permission_master upm', array('upm.user_id' => $userId))->result_array();
+        } else {
+            $data =array();
+        }
+        return $data;
+    }
+    
     
 }

@@ -210,14 +210,23 @@ class UserMasterModel extends CI_Model {
 
     public function getServiceDetails($userid) {
         $result=[];
-        $sql = "SELECT * FROM `service_type_mapping` WHERE user_id= $userid";
-        $query = $this->db->query($sql);
-        if($query->num_rows()>0){
+        $this->db->select('stmap.id,'
+                . 'stmap.user_id,'
+                . 'stmap.service_type_id,'
+                . 'stm.title,'
+                . 'stmap.value,'
+                . 'stmap.image,'
+                . 'stmap.flag');
+        $this->db->join('service_type_master stm', 'stm.id = stmap.service_type_id');
+        $data = $query = $this->db->get_where('service_type_mapping stmap', array('stmap.user_id' => $userid))->result();
+        
+        if(!empty($data)){
             $result['status'] = true;
-            $result['data'] =  $query->result();
+            $result['data'] =  $data;
         }else{
             $result['status'] = false;
         }
+        
      return $result;
     }
 

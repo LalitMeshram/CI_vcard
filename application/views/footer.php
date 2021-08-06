@@ -250,7 +250,7 @@
     <!-- SoftMaterial admin for advanced form element -->
 	<script src="<?php echo base_url() .'resource/js/pages/advanced-form-element.js';?>"></script>
         <!--custom js-->
-	<script src="<?php echo base_url() .'resource/js/custom/access.min.js';?>"></script>
+	<script src="<?php echo base_url() .'resource/js/custom/menubar.js';?>"></script>
 <!--notification alert-->
 <script>
 
@@ -261,51 +261,3 @@
         output.src = URL.createObjectURL(event.target.files[0]);
     };
 </script>
-
-<script>
-
-    function getNotification() {
-
-        $.ajax({
-
-            url: 'expiry-alert',
-            type: 'GET',
-            cache: false,
-            contentType: false,
-            processData: false,
-            dataType: 'json',
-            success: function (response) {
-                if (response.status == 200) {
-                    $('#msgCount').html(response.data.length);
-                    var list = `<ul class="menu inner-content-div" >`;
-                    for (var i = 0; i < response.data.length; i++) {
-                        list += `<li>
-                        <a href="<?php echo base_url('userProduct-list'); ?>">
-                            <div class="mail-contnet">
-                            <h4>
-                        ` + response.data[i].business_name + ` | ` + response.data[i].owner_name + `
-                </h4>
-                    <span>AMC Date: ` + response.data[i].upcomming_amc_date + `</span>
-                                                    </div>
-                                                </a>
-                                            </li>`;
-                    }
-                    list += `</ul>`;
-                    $('#listNotify').html(list);
-
-                } else if (response.status == 400) {
-
-                }
-
-            }
-
-        });
-    }
-
-    //getNotification();
-
-
-
-</script>
-
-

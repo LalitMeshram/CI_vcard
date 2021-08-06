@@ -58,7 +58,6 @@ class AdminController extends CI_Controller {
         $this->load->view('end');
     }
     public function update_user_form($id) {
-        $data['id']=$id;
         $this->load->view('header');
         $this->load->view('side_bar');
         $this->load->view('user_master/update_user_wizard');

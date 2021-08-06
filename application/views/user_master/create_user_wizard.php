@@ -38,7 +38,7 @@
                             <div class="row">
                                 <div class="col-md-3">
                                     <div class="form-group text-center">
-                                        <img src="<?php echo base_url('/admin_assets/img/doc_pre.png'); ?>" alt="" id="otherdpre"  width="100px" height="100px"/>
+                                        <img src="<?php echo base_url('resource/images/avatar-custom.png'); ?>" alt="" id="otherdpre"  width="100px" height="100px"/>
                                         <p><label for="profile_image" style="cursor: pointer;" class="h6"><u>Upload...</u></label></p>
                                         <input type="file" class="form-control" name="profile_image" id="profile_image" accept="image/*"  onchange="loadFile(event, 'otherdpre')" />
 
@@ -271,7 +271,7 @@
                                         <label class="control-label"><span class="error">*</span>Select Image</label>
 
                                         <input class="form-control" id="other_image" name="other_image" type="file" onchange="loadFile(event, 'other_imagepre')" />
-                                        <img src="<?php echo base_url('resource/img/noimage.png'); ?>" alt="" id="other_imagepre" width="20px" height="20px" />
+                                        <img src="<?php echo base_url(); ?>resource/img/noimage.png" alt="" id="other_imagepre" width="20px" height="20px" />
                                     </div>
                                 </div>
 

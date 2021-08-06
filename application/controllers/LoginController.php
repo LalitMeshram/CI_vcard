@@ -10,6 +10,7 @@ class LoginController extends REST_Controller {
 
         parent::__construct();
         $this->load->model('LoginModel', 'login');
+        $this->load->model('UserPermissionModel', 'permission');
         $this->objOfJwt = new CreatorJwt();
     }
 
@@ -33,11 +34,12 @@ class LoginController extends REST_Controller {
                 'logged_in' => TRUE
             );
             $this->session->set_userdata('loginSession', $sessionData);
-
+            $userAccess=$this->permission->getUserPermissionforLogin($result['id']);
 //            send response
             $response['msg'] = 'user login successfully!';
             $response['userid']=$result['id'];
             $response['url']= base_url();
+            $response['access']= $userAccess;
             $response['token'] = $jwtToken;
             $response['status'] = 200;
             $this->response($response, REST_Controller::HTTP_OK);

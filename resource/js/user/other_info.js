@@ -23,7 +23,7 @@ var token = localStorage.getItem('token');
                         <td>` + service + `</td>
                         <td>` + url + `</td>
                             <td>
-                            <img src="<?php echo base_url('resource/img/noimage.png'); ?>" alt="" id="other` + service.replace(/ /g, "_") + `pre" width="20px" height="20px" />
+                            <img src="`+base_url+`/resource/img/noimage.png" alt="" id="other` + service.replace(/ /g, "_") + `pre" width="20px" height="20px" />
                                 <input type="hidden" id="other` + service.replace(/ /g, "_") + `" value=""/>
                                 <input type="hidden" id="flag` + service.replace(/ /g, "_") + `" value="`+flag+`"/>
                                     
@@ -36,7 +36,7 @@ var token = localStorage.getItem('token');
                         </tr>`;
 
                 $('#otherData').html(tableData);
-                $('#other_imagepre').attr('src',"<?php echo base_url('resource/img/noimage.png'); ?>");
+                $('#other_imagepre').attr('src',base_url+"/resource/img/noimage.png");
                 
                 $('#other' + service.replace(/ /g, "_") + 'pre').attr("src", URL.createObjectURL(other_image));
                 

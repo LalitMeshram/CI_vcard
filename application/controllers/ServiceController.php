@@ -39,6 +39,7 @@ class ServiceController extends REST_Controller {
 
         $id = $this->post('id');
         if (empty($id)) {
+            $data['created_at'] = date('Y-m-d H:i:s', now());
             $service_id = $this->service->insert_service($data);
 
             if (!empty($service_id)) {

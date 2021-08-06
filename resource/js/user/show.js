@@ -201,11 +201,15 @@ var userList = new Map();
 
                 if (response.status == 200) {
                     var data=response.data;
+                    console.log(data);
                         for (var i = 0; i < data.length; i++) {
                             
                             $('#profileid_'+data[i].activity_id).val(data[i].profile_master_id);
                             $('#userid_'+data[i].activity_id).val(data[i].user_id);
                             
+                            if(data[i]._view==1){
+                                $('#viewbox_'+data[i].activity_id).prop('checked', true);
+                            }
                             if(data[i]._create==1){
                                 $('#createbox_'+data[i].activity_id).prop('checked', true);
                             }
@@ -214,6 +218,9 @@ var userList = new Map();
                             }
                             if(data[i]._delete==1){
                                 $('#deletebox_'+data[i].activity_id).prop('checked', true);
+                            }
+                            if(data[i].permissionBtn==1){
+                                $('#permissionbox_'+data[i].activity_id).prop('checked', true);
                             }
                             
                             
