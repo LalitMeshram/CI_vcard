@@ -26,8 +26,8 @@ $route['userDetail/(:num)'] = 'admin/AdminController/user_detail/$1';
 $route['service-master'] = 'admin/AdminController/service_master';
 
 //my profile ui
-//$route['my-profile'] = 'admin/AdminController/my_profile';
-//$route['myProfileDetail/(:num)']='admin/AdminController/myProfileDetail/$1';
+$route['my-profile'] = 'admin/AdminController/my_profile';
+$route['myProfileDetail/(:num)']='admin/AdminController/myProfileDetail/$1';
 
 //activity mster ui
 $route['activity-master'] = 'admin/AdminController/activity_master';

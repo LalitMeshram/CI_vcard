@@ -6,3 +6,4 @@
 <script src="<?php echo base_url();?>resource/js/user/profile.js"></script>
 <script src="<?php echo base_url();?>resource/js/user/update.js"></script>
 <script src="<?php echo base_url();?>resource/js/user/set_update_user.js"></script>
+<script src="<?php echo base_url();?>resource/js/user/checkEmailPhone.js"></script>

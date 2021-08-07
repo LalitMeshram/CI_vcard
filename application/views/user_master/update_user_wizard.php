@@ -105,8 +105,9 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label ><span class="error">*</span>Phone No.1<span id="errorPhone" class="text-danger"></span></label>
+                                        <label><span class="error">*</span>Phone No.1</label>
                                         <input type="text" class="form-control" placeholder="Phone No" id="phone1" name="phone1">
+                                        <span id="errorPhone" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -125,6 +126,7 @@
                                     <div class="form-group">
                                         <label ><span class="error">*</span>Email Id</label>
                                         <input type="text" class="form-control" placeholder="Email Id" id="email_id" name="email_id">
+                                        <span id="errorEmail" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-4">

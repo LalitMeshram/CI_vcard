@@ -4,4 +4,3 @@
 <script src="<?php echo base_url();?>resource/js/user/other_info.js"></script>
 <script src="<?php echo base_url();?>resource/js/user/user.js"></script>
 <script src="<?php echo base_url();?>resource/js/user/role.js"></script>
-<!--<script src="<?php // echo base_url();?>resource/js/user/checkEmailPhone.js"></script>-->
