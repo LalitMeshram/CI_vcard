@@ -5,6 +5,10 @@ var url = window.location.href;
 var idx = url.indexOf("update-form");
 var userid = url.substring(idx).split("/")[1];
 //alert(id);
+$('#role_id').prop('disabled', true);
+$('#profile_id').prop('disabled', true);
+$('#agent_id').prop('disabled', true);
+$('#password').prop('disabled', true);
 
 var userList;
 function getUserList() {
@@ -49,6 +53,7 @@ function setUser() {
     $('#map_direction_url').val(user.map_direction_url);
     $('#website_url').val(user.website_url);
     $('#email_id').val(user.email_id);
+
 
 
     setService(user.service);
@@ -102,5 +107,20 @@ function setBusiness(list) {
                         </td>
                         </tr>`;
     }
-        $('#bussData').html(tableData);
+    $('#bussData').html(tableData);
+
 }
+
+$('#isPassword').change(function () {
+//    alert('ok');
+    if ($('#isPassword').prop("checked") == true) {
+
+        $('#password').prop('disabled', false);
+    } else {
+        $('#password').prop('disabled', true);
+    }
+
+
+});
+
+

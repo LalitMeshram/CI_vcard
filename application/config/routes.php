@@ -25,6 +25,10 @@ $route['userDetail/(:num)'] = 'admin/AdminController/user_detail/$1';
 //service mster ui
 $route['service-master'] = 'admin/AdminController/service_master';
 
+//my profile ui
+//$route['my-profile'] = 'admin/AdminController/my_profile';
+//$route['myProfileDetail/(:num)']='admin/AdminController/myProfileDetail/$1';
+
 //activity mster ui
 $route['activity-master'] = 'admin/AdminController/activity_master';
 
@@ -66,7 +70,7 @@ $route['user']='UserController/user';
 $route['user/(:num)']='UserController/user/$1';
 $route['userPermission/(:num)']='UserPermissionController/userPermission/$1';
 $route['userPermission']='UserPermissionController/userPermission';
-
+$route['checkUserId']='UserController/isCheckUserId';
 
 
 $route['404_override'] = '';

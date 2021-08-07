@@ -242,6 +242,11 @@ class UserMasterModel extends CI_Model {
      return $result;
     }
 
+    public function getDataAsperUserId($userId) {
+         $this->db->where("phone1='".$userId."' OR email_id='".$userId."'");
+        $result = $this->db->get('user_master')->row_array();
+        return $result;
+    }
     
     
 }

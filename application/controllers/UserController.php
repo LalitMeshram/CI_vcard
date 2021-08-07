@@ -249,4 +249,29 @@ class UserController extends REST_Controller {
         return $destination_url;
     }
 
+    function isCheckUserId_post() {
+        $response = [];
+        $received_Token = $this->input->request_headers();
+        $jwtData = $this->objOfJwt->DecodeToken($received_Token['Authorization']);
+        $userId = $this->post('user_id');
+        $result = $this->user->getDataAsperUserId($userId);
+        if (!empty($result)) {
+            if (filter_var($userId, FILTER_VALIDATE_EMAIL)) {
+                $response['msg'] = 'Email Id Already Present!';
+            } else {
+                $response['msg'] = 'Mobile Number Already Present!';
+            }
+            $response['status'] = 400;
+            $this->response($response, REST_Controller::HTTP_OK);
+        } else {
+            if (filter_var($userId, FILTER_VALIDATE_EMAIL)) {
+                $response['msg'] = 'Email Id not Present!';
+            } else {
+                $response['msg'] = 'Mobile Number not Present!';
+            }
+            $response['status'] = 200;
+            $this->response($response, REST_Controller::HTTP_OK);
+        }
+    }
+
 }

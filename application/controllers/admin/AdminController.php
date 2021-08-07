@@ -63,6 +63,7 @@ class AdminController extends CI_Controller {
         $this->load->view('user_master/update_user_wizard');
         $this->load->view('footer');
         $this->load->view('user_master/update_user_form_js');
+        $this->load->view('user_master/update_user_form_js');
         $this->load->view('end');
     }
     public function service_master() {
