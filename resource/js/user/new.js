@@ -77,7 +77,7 @@ function getSocialData() {
             var formdata = new FormData(this);
             formdata.append('socialData', socialString);
         formdata.append('bussData', businessString);
-        formdata.append('created_by', 1);
+        formdata.append('created_by', userid);
             if (returnVal) {
                 $.ajax({
 

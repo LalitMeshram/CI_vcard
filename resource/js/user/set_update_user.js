@@ -52,34 +52,55 @@ function setUser() {
 
 
     setService(user.service);
-
+    setBusiness(user.business);
 }
 
 function setService(list) {
-     var tableData = '';
+    var tableData = '';
     for (let service of list) {
-        
+
         tableData += `<tr id="r` + service.title.replace(/ /g, "_") + `">
                         <td>` + service.service_type_id + `</td>
                         <td>` + service.title + `</td>
                         <td>` + service.value + `</td>
                             <td>
-                            <img src="`+base_url+`/resource/img/noimage.png" alt="" id="other` + service.title.replace(/ /g, "_") + `pre" width="20px" height="20px" />
+                            <img src="` + base_url + `/resource/img/noimage.png" alt="" id="other` + service.title.replace(/ /g, "_") + `pre" width="20px" height="20px" />
                                 <input type="hidden" id="other` + service.title.replace(/ /g, "_") + `" value=""/>
-                                <input type="hidden" id="flag` + service.replace(/ /g, "_") + `" value="`+service.flag+`"/>
+                                <input type="hidden" id="flag` + service.title.replace(/ /g, "_") + `" value="` + service.flag + `"/>
                                     
                         </td>
                         <td>
-                        <button type="button" class="btn btn-secondary btn-sm text-danger" onclick="deletePartner('` + service.replace(/ /g, "_") + `')">
+                        <button type="button" class="btn btn-secondary btn-sm text-danger" onclick="deletePartner('` + service.title.replace(/ /g, "_") + `')">
                         Delete
                         </button>
                         </td>
                         </tr>`;
+        $('#otherData').html(tableData);
 
-                $('#otherData').html(tableData);
-        
-        
-        
-        
+        if (service.flag == 1) {
+            $('#other' + service.title.replace(/ /g, "_") + 'pre').attr("src", base_url + service.image);
+        }
+
+
     }
+}
+
+
+function setBusiness(list) {
+    var tableData = '';
+    var d = new Date();
+    var n = d.getTime();
+    for (let buss of list) {
+        tableData += `<tr id="l` + n + `">
+                        <td>` + buss.type + `</td>
+                        <td>` + buss.content + `</td>
+                        <td>` + buss.sequence + `</td>
+                        <td>
+                        <button type="button" class="btn btn-secondary btn-sm text-danger" onclick="deleteBuss('` + n + `')">
+                        Delete
+                        </button>
+                        </td>
+                        </tr>`;
+    }
+        $('#bussData').html(tableData);
 }
