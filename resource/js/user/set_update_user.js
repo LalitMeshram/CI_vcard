@@ -9,6 +9,7 @@ $('#role_id').prop('disabled', true);
 $('#profile_id').prop('disabled', true);
 $('#agent_id').prop('disabled', true);
 $('#password').prop('disabled', true);
+$('#phone1').prop('disabled', true);
 
 var userList;
 function getUserList() {
@@ -123,4 +124,14 @@ $('#isPassword').change(function () {
 
 });
 
+$('#isPhone').change(function () {
+//    alert('ok');
+    if ($('#isPhone').prop("checked") == true) {
 
+        $('#phone1').prop('disabled', false);
+    } else {
+        $('#phone1').prop('disabled', true);
+    }
+
+
+});

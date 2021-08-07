@@ -37,6 +37,7 @@ $('#phone1').on('change', function () {
                     $('#errorPhone').html(' ');
                     $("#addUserForm :input").prop("disabled", false);
                     $("#password").prop("disabled", true);
+                    $("#phone1").prop("disabled", true);
                 }
 
             }
@@ -83,6 +84,7 @@ $('#email_id').on('change', function () {
                     $('#errorEmail').html(' ');
                     $("#addUserForm :input").prop("disabled", false);
                     $("#password").prop("disabled", true);
+                    $("#phone1").prop("disabled", true);
                 }
 
             }

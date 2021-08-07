@@ -107,6 +107,8 @@
                                     <div class="form-group">
                                         <label><span class="error">*</span>Phone No.1</label>
                                         <input type="text" class="form-control" placeholder="Phone No" id="phone1" name="phone1">
+                                        <input type="checkbox" id="isPhone" >
+                                        <label for="isPhone"></label>
                                         <span id="errorPhone" class="text-danger"></span>
                                     </div>
                                 </div>
@@ -161,7 +163,7 @@
                                         <label for="isPassword"></label>
                                     </div>
                                 </div>
-                            <!--</div>-->
+                                <!--</div>-->
                             </div>
                             <div class="row">
                                 <div class="col-md-4">
