@@ -148,9 +148,6 @@ class UserController extends REST_Controller {
 
             $userData = $this->user->get_user($id);
             if (!empty($userData)) {
-                $data['id'] = $id;
-                $data['agent_id'] = $this->post('agent_id');
-
                 $data['business_name'] = $this->post('business_name');
                 $data['designation'] = $this->post('designation');
                 $data['first_name'] = $this->post('first_name');
@@ -190,7 +187,7 @@ class UserController extends REST_Controller {
                     'serviceData' => $service_data,
                     'bussData' => $buss_data
                 );
-                $status = $this->user->update_user($allData);
+                $status = $this->user->update_user($allData,$id);
                 if ($status) {
                     $response['msg'] = 'User updated successfully!';
                     $response['id'] = $id;

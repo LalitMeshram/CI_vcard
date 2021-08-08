@@ -10,6 +10,7 @@ $('#profile_id').prop('disabled', true);
 $('#agent_id').prop('disabled', true);
 $('#password').prop('disabled', true);
 $('#phone1').prop('disabled', true);
+$('#email_id').prop('disabled', true);
 
 var userList;
 function getUserList() {
@@ -131,6 +132,17 @@ $('#isPhone').change(function () {
         $('#phone1').prop('disabled', false);
     } else {
         $('#phone1').prop('disabled', true);
+    }
+
+
+});
+$('#isEmail').change(function () {
+//    alert('ok');
+    if ($('#isEmail').prop("checked") == true) {
+
+        $('#email_id').prop('disabled', false);
+    } else {
+        $('#email_id').prop('disabled', true);
     }
 
 

@@ -37,7 +37,10 @@ $('#phone1').on('change', function () {
                     $('#errorPhone').html(' ');
                     $("#addUserForm :input").prop("disabled", false);
                     $("#password").prop("disabled", true);
-                    $("#phone1").prop("disabled", true);
+                    $("#email_id").prop("disabled", true);
+                    $("#role_id").prop("disabled", true);
+                    $("#profile_id").prop("disabled", true);
+                    $("#agent_id").prop("disabled", true);
                 }
 
             }
@@ -85,6 +88,9 @@ $('#email_id').on('change', function () {
                     $("#addUserForm :input").prop("disabled", false);
                     $("#password").prop("disabled", true);
                     $("#phone1").prop("disabled", true);
+                    $("#role_id").prop("disabled", true);
+                    $("#profile_id").prop("disabled", true);
+                    $("#agent_id").prop("disabled", true);
                 }
 
             }

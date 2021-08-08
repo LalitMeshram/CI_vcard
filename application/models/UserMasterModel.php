@@ -76,16 +76,16 @@ class UserMasterModel extends CI_Model {
         return $result;
     }
 
-    public function update_user($data) {
+    public function update_user($data,$id) {
         $userData = $data['userData'];
         $serviceData = $data['serviceData'];
         $bussData = $data['bussData'];
         $this->db->trans_begin();
-        $this->db->where('id', $userData['id']);
+        $this->db->where('id', $id);
         $this->db->update('user_master', $userData);
 
-        $this->setServiceData($userData['id'], $serviceData);
-        $this->setBussData($userData['id'], $bussData);
+        $this->setServiceData($id, $serviceData);
+        $this->setBussData($id, $bussData);
         if ($this->db->trans_status() === FALSE) {
             $this->db->trans_rollback();
         } else {

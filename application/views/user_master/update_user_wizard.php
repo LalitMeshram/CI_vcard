@@ -128,6 +128,8 @@
                                     <div class="form-group">
                                         <label ><span class="error">*</span>Email Id</label>
                                         <input type="text" class="form-control" placeholder="Email Id" id="email_id" name="email_id">
+                                        <input type="checkbox" id="isEmail" >
+                                        <label for="isEmail"></label>
                                         <span id="errorEmail" class="text-danger"></span>
                                     </div>
                                 </div>
