@@ -19,7 +19,7 @@
         <!-- Default box -->
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title">User List</h3>
+                <h3 class="box-title">User Registration</h3>
 
                 <ul class="box-controls pull-right">
                     <li><a class="box-btn-close" href="#"></a></li>
@@ -108,6 +108,7 @@
                                     <div class="form-group">
                                         <label ><span class="error">*</span>Phone No.1</label>
                                         <input type="text" class="form-control" placeholder="Phone No" id="phone1" name="phone1">
+                                        <span id="errorPhone" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -126,6 +127,7 @@
                                     <div class="form-group">
                                         <label ><span class="error">*</span>Email Id</label>
                                         <input type="text" class="form-control" placeholder="Email Id" id="email_id" name="email_id">
+                                        <span id="errorEmail" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -246,63 +248,11 @@
                         <!-- Step 4 -->
                         <h6>Social Detail</h6>
                         <section class="bg-white">
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label ><span class="error">*</span>Select Service</label>
-                                        <select class="form-control select2" style="width: 100%;" id="service">
-                                            
-                                        </select>
-                                    </div>
-                                </div>
+                            
 
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <label ><span class="error">*</span><span id="urlLabel">Url</span></label>
-                                        <input type="text" class="form-control" placeholder="" id="url">
-                                        <input type="hidden"  id="hiddenflag" value="0">
-                                    </div>
-                                </div>
-
-
+                            <div id="serviceData">
                                 
-                                <div class="col-sm-3">
-                                    <div class="form-group">
-                                        <label class="control-label"><span class="error">*</span>Select Image</label>
-
-                                        <input class="form-control" id="other_image" name="other_image" type="file" onchange="loadFile(event, 'other_imagepre')" />
-                                        <img src="<?php echo base_url(); ?>resource/img/noimage.png" alt="" id="other_imagepre" width="20px" height="20px" />
-                                    </div>
-                                </div>
-
-                                <div class="col-sm-3">
-                                    <div class="row" style="margin-top: 25px;">
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label class="control-label"></label>
-                                                <button type="button" class="btn btn-info" id="addUser">Add</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <table class="table table-striped table-sm" id="otherTable">
-                                    <thead class="thead-dark">
-                                        <tr>
-                                            <th scope="col">Id</th>
-                                            <th scope="col">Service</th>
-                                            <th scope="col">Url/Number</th>
-                                            <th scope="col">Image</th>
-                                            
-                                            <th scope="col">Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="otherData">   
-
-                                    </tbody>
-                                </table>
+                                
                             </div>
 
                             

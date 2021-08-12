@@ -62,7 +62,7 @@ class UserMasterModel extends CI_Model {
                 . 'agent.first_name as agent_fname,'
                 . 'agent.middle_name as agent_mname,'
                 . 'agent.last_name as agent_lname'
-                );
+        );
 
         $this->db->join('role_master rm', 'um.role_id = rm.id');
         $this->db->join('user_master cum', 'cum.id = um.created_by');
@@ -76,7 +76,7 @@ class UserMasterModel extends CI_Model {
         return $result;
     }
 
-    public function update_user($data,$id) {
+    public function update_user($data, $id) {
         $userData = $data['userData'];
         $serviceData = $data['serviceData'];
         $bussData = $data['bussData'];
@@ -100,21 +100,37 @@ class UserMasterModel extends CI_Model {
     }
 
     public function setServiceData($userid, $serviceData) {
+        $serviceArr;
+        $i = 0;
+//        print_r($serviceData);exit;
+        $result = $this->getServiceDetails($userid);
+        if ($result['status'] == true) {
+            foreach ($result['data'] as $arr) {
+                if ($arr->flag == 1) {
+                    unlink($arr->image);
+                }
+            }
+        }
         foreach ($serviceData as $service) {
             $image_path = '';
-            if (isset($service->otherImage) && $service->flag==1) {
+            if (isset($service->otherImage) && $service->flag == 1) {
                 $image_path = $this->upload_file($service->otherImage);
             }
-            $serviceArr = array(
+            $serviceArr[$i++] = array(
                 "user_id" => $userid,
                 "service_type_id" => $service->service_type_id,
                 "value" => $service->value,
                 "image" => $image_path,
-                "flag" => $service->flag,
+                "flag" => $service->flag
             );
-            $this->db->insert('service_type_mapping', $serviceArr);
-            $serviceid = $this->db->insert_id();
         }
+
+
+        if ($result['status'] == true) {
+            $this->deleteServiceDetails($userid);
+        }
+
+        $this->db->insert_batch('service_type_mapping', $serviceArr);
     }
 
     function upload_file($encoded_string) {
@@ -196,20 +212,28 @@ class UserMasterModel extends CI_Model {
     }
 
     public function setBussData($userid, $bussData) {
+        $bussArr;
+        $i = 0;
         foreach ($bussData as $business) {
-            $bussArr = array(
+            $bussArr[$i++] = array(
                 "user_id" => $userid,
                 "type" => $business->type,
                 "content" => $business->content,
                 "sequence" => $business->sequence,
             );
-            $this->db->insert('business_content', $bussArr);
-            $bussid = $this->db->insert_id();
         }
+//         $this->db->insert('business_content', $bussArr);
+//            $bussid = $this->db->insert_id();
+        $result = $this->getBusinessDetails($userid);
+        if ($result['status'] == true) {
+            $this->deleteBusinessDetails($userid);
+        }
+
+        $this->db->insert_batch('business_content', $bussArr);
     }
 
     public function getServiceDetails($userid) {
-        $result=[];
+        $result = [];
         $this->db->select('stmap.id,'
                 . 'stmap.user_id,'
                 . 'stmap.service_type_id,'
@@ -219,34 +243,42 @@ class UserMasterModel extends CI_Model {
                 . 'stmap.flag');
         $this->db->join('service_type_master stm', 'stm.id = stmap.service_type_id');
         $data = $query = $this->db->get_where('service_type_mapping stmap', array('stmap.user_id' => $userid))->result();
-        
-        if(!empty($data)){
+
+        if (!empty($data)) {
             $result['status'] = true;
-            $result['data'] =  $data;
-        }else{
+            $result['data'] = $data;
+        } else {
+            $result['data'] = [];
             $result['status'] = false;
         }
-        
-     return $result;
+
+        return $result;
     }
 
     public function getBusinessDetails($userid) {
         $sql = "SELECT * FROM `business_content` WHERE user_id= $userid";
         $query = $this->db->query($sql);
-        if($query->num_rows()>0){
+        if ($query->num_rows() > 0) {
             $result['status'] = true;
-            $result['data'] =  $query->result();
-        }else{
+            $result['data'] = $query->result();
+        } else {
             $result['status'] = false;
         }
-     return $result;
+        return $result;
     }
 
     public function getDataAsperUserId($userId) {
-         $this->db->where("phone1='".$userId."' OR email_id='".$userId."'");
+        $this->db->where("phone1='" . $userId . "' OR email_id='" . $userId . "'");
         $result = $this->db->get('user_master')->row_array();
         return $result;
     }
-    
-    
+
+    public function deleteServiceDetails($userid) {
+        return $this->db->delete('service_type_mapping', array('user_id' => $userid));
+    }
+
+    public function deleteBusinessDetails($userid) {
+        return $this->db->delete('business_content', array('user_id' => $userid));
+    }
+
 }

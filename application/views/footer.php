@@ -248,7 +248,7 @@
     	<!-- Select2 -->
 	<script src="<?php echo base_url() .'resource/assets/vendor_components/select2/dist/js/select2.full.js';?>"></script>
     <!-- SoftMaterial admin for advanced form element -->
-	<script src="<?php echo base_url() .'resource/js/pages/advanced-form-element.js';?>"></script>
+	<!--<script src="<?php // echo base_url() .'resource/js/pages/advanced-form-element.js';?>"></script>-->
         <!--custom js-->
 	<script src="<?php echo base_url() .'resource/js/custom/menubar.js';?>"></script>
 <!--notification alert-->

@@ -65,13 +65,13 @@ function setUser() {
 function setService(list) {
     var tableData = '';
     for (let service of list) {
-
+//        alert(service.flag);
         tableData += `<tr id="r` + service.title.replace(/ /g, "_") + `">
                         <td>` + service.service_type_id + `</td>
                         <td>` + service.title + `</td>
                         <td>` + service.value + `</td>
                             <td>
-                            <img src="` + base_url + `/resource/img/noimage.png" alt="" id="other` + service.title.replace(/ /g, "_") + `pre" width="20px" height="20px" />
+                            <img src="` + ((service.flag == 1) ? (base_url + service.image) : (base_url + 'resource/img/noimage.png')) + ` " alt="" id="other` + service.title.replace(/ /g, "_") + `pre" width="20px" height="20px" />
                                 <input type="hidden" id="other` + service.title.replace(/ /g, "_") + `" value=""/>
                                 <input type="hidden" id="flag` + service.title.replace(/ /g, "_") + `" value="` + service.flag + `"/>
                                     
@@ -83,12 +83,43 @@ function setService(list) {
                         </td>
                         </tr>`;
         $('#otherData').html(tableData);
+//        console.log(service);
 
+
+    }
+
+    for (let service of list) {
         if (service.flag == 1) {
-            $('#other' + service.title.replace(/ /g, "_") + 'pre').attr("src", base_url + service.image);
+//
+//            var request = new XMLHttpRequest();
+//            request.open('GET', base_url + service.image, false);
+//            request.responseType = 'blob';
+//            request.timeout = 370000;
+//            request.onload = function () {
+//                var reader = new FileReader();
+//                reader.readAsDataURL(request.response);
+//                reader.onload = function (e) {
+////                    console.log('DataURL:', e.target.result);
+//                    $('#other' + service.title.replace(/ /g, "_")).val(e.target.result);
+//                };
+//            };
+//            request.send();
+
+
+            var img = document.getElementById(`other` + service.title.replace(/ /g, "_") + `pre`);
+            var parts = [
+                new Blob(img, {type: '*image'}),
+                ' Same way as you do with blob',
+                new Uint16Array([33])
+            ];
+            var other_image = new File(img);
+            getPhotoBase64(other_image).then(function (data) {
+                //set string in hidden field
+                $('#other' + service.replace(/ /g, "_")).val(data);
+            });
+
+
         }
-
-
     }
 }
 
@@ -147,3 +178,5 @@ $('#isEmail').change(function () {
 
 
 });
+
+

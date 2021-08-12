@@ -1,5 +1,4 @@
 <?php
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 require APPPATH . 'libraries/REST_Controller.php';
 require APPPATH . '/libraries/CreatorJwt.php';
@@ -57,34 +56,6 @@ class UserController extends REST_Controller {
         $received_Token = $this->input->request_headers();
         $jwtData = $this->objOfJwt->DecodeToken($received_Token['Authorization']);
 
-        $profileId = $this->post('profile_id');
-        $data['role_id'] = $this->post('role_id');
-        $data['profile_id'] = $profileId;
-        $data['agent_id'] = $this->post('agent_id');
-
-        $data['business_name'] = $this->post('business_name');
-        $data['designation'] = $this->post('designation');
-        $data['first_name'] = $this->post('first_name');
-        $data['middle_name'] = $this->post('middle_name');
-        $data['last_name'] = $this->post('last_name');
-        $data['phone1'] = $this->post('phone1');
-        $data['phone2'] = $this->post('phone2');
-        $data['whatsapp_number'] = $this->post('whatsapp_number');
-        $data['map_direction_url'] = $this->post('map_direction_url');
-        $data['website_url'] = $this->post('website_url');
-        $data['email_id'] = $this->post('email_id');
-        $data['password'] = $this->post('password');
-        $data['address'] = $this->post('address');
-        $data['about_us'] = $this->post('about_us');
-        $data['total_amount'] = $this->post('total_amount');
-        $data['paid_amount'] = $this->post('paid_amount');
-        $data['discount'] = $this->post('discount');
-        $data['installation_date'] = $this->post('installation_date');
-        $data['next_renewal_date'] = $this->post('next_renewal_date');
-        $data['renewal_amount'] = $this->post('renewal_amount');
-        $data['term'] = $this->post('term');
-        $data['remark'] = $this->post('remark');
-        $data['discount_id'] = $this->post('discount_id');
 
 
         $data['is_active'] = ($this->post('is_active') == 'on' || $this->post('is_active') == 1) ? 1 : 0;
@@ -98,6 +69,38 @@ class UserController extends REST_Controller {
 
 
         if (empty($id)) {
+
+            $profileId = $this->post('profile_id');
+            $data['role_id'] = $this->post('role_id');
+            $data['profile_id'] = $profileId;
+            $data['agent_id'] = $this->post('agent_id');
+
+            $data['business_name'] = $this->post('business_name');
+            $data['designation'] = $this->post('designation');
+            $data['first_name'] = $this->post('first_name');
+            $data['middle_name'] = $this->post('middle_name');
+            $data['last_name'] = $this->post('last_name');
+            $data['phone1'] = $this->post('phone1');
+            $data['phone2'] = $this->post('phone2');
+            $data['whatsapp_number'] = $this->post('whatsapp_number');
+            $data['map_direction_url'] = $this->post('map_direction_url');
+            $data['website_url'] = $this->post('website_url');
+            $data['email_id'] = $this->post('email_id');
+            $data['password'] = $this->post('password');
+            $data['address'] = $this->post('address');
+            $data['about_us'] = $this->post('about_us');
+            $data['total_amount'] = $this->post('total_amount');
+            $data['paid_amount'] = $this->post('paid_amount');
+            $data['discount'] = $this->post('discount');
+            $data['installation_date'] = $this->post('installation_date');
+            $data['next_renewal_date'] = $this->post('next_renewal_date');
+            $data['renewal_amount'] = $this->post('renewal_amount');
+            $data['term'] = $this->post('term');
+            $data['remark'] = $this->post('remark');
+            $data['discount_id'] = $this->post('discount_id');
+
+
+
             $data['created_at'] = date('Y-m-d H:i:s', now());
             if (!empty($_FILES['profile_image']['name'])) {
                 $file_data['file_name'] = $_FILES['profile_image']['name'];
@@ -114,6 +117,7 @@ class UserController extends REST_Controller {
                 'serviceData' => $service_data,
                 'bussData' => $buss_data
             );
+            print_r($service_data);exit;
             $result = $this->user->insert_user($allData); //userid
             $permissionSet = $this->permission->get_permission_asper_profile($profileId);
             $userPermission;
@@ -153,13 +157,22 @@ class UserController extends REST_Controller {
                 $data['first_name'] = $this->post('first_name');
                 $data['middle_name'] = $this->post('middle_name');
                 $data['last_name'] = $this->post('last_name');
-                $data['phone1'] = $this->post('phone1');
+
+                if ($this->post('phone1') != '') {
+                    $data['phone1'] = $this->post('phone1');
+                }
                 $data['phone2'] = $this->post('phone2');
                 $data['whatsapp_number'] = $this->post('whatsapp_number');
                 $data['map_direction_url'] = $this->post('map_direction_url');
                 $data['website_url'] = $this->post('website_url');
-                $data['email_id'] = $this->post('email_id');
-                $data['password'] = $this->post('password');
+
+                if ($this->post('email_id') != '') {
+                    $data['email_id'] = $this->post('email_id');
+                }
+                if ($this->post('password') != '') {
+                    $data['password'] = $this->post('password');
+                }
+
                 $data['address'] = $this->post('address');
                 $data['about_us'] = $this->post('about_us');
                 $data['total_amount'] = $this->post('total_amount');
@@ -171,9 +184,8 @@ class UserController extends REST_Controller {
                 $data['term'] = $this->post('term');
                 $data['remark'] = $this->post('remark');
                 $data['discount_id'] = $this->post('discount_id');
-                $data['is_active'] = ($this->post('is_active') == 'on' || $this->post('is_active') == 1) ? 1 : 0;
                 $data['modified_by'] = $this->post('created_by');
-                $data['modified_at'] = date('Y-m-d H:i:s', now());
+                $data['modified_at'] = date('Y-m-d h:i:s', now());
                 if (!empty($_FILES['profile_image']['name'])) {
                     unlink($userData['profile_image']);
                     $file_data['file_name'] = $_FILES['profile_image']['name'];
@@ -187,7 +199,9 @@ class UserController extends REST_Controller {
                     'serviceData' => $service_data,
                     'bussData' => $buss_data
                 );
-                $status = $this->user->update_user($allData,$id);
+//                print_r($service_data);
+//                exit;
+                $status = $this->user->update_user($allData, $id);
                 if ($status) {
                     $response['msg'] = 'User updated successfully!';
                     $response['id'] = $id;
