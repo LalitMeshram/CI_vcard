@@ -26,7 +26,7 @@ function getSocialData(list) {
             service_type_id: id,
             otherImage: image,
             flag: flag,
-            vval:value
+            value:value
         };
 
     }
